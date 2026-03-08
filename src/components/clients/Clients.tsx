@@ -1,29 +1,21 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { clients } from '@/data/clients'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { Building2 } from 'lucide-react'
+import { Building2, X, LayoutGrid } from 'lucide-react'
 
-function ClientLogo({ client, index }: { client: typeof clients[0]; index: number }) {
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
-
+function ClientLogo({ client }: { client: typeof clients[0] }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.4, delay: (index % 8) * 0.07 }}
+    <div
       title={client.name}
-      className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/25 hover:bg-white/10 transition-all duration-300 cursor-default overflow-hidden"
+      className="group flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-amber-100 dark:border-gray-700 bg-white dark:bg-gray-800 px-8 py-6 mx-4 min-w-[200px] h-[140px] hover:border-amber-400 hover:shadow-lg transition-all duration-300 cursor-default"
     >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-600/10 to-transparent" />
-
-      {/* Logo image or fallback icon */}
-      <div className="relative z-10 w-16 h-16 flex items-center justify-center">
+      <div className="w-20 h-14 flex items-center justify-center">
         <img
           src={client.img}
           alt={client.name}
-          className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100"
+          className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
           onError={(e) => {
             const target = e.currentTarget
             target.style.display = 'none'
@@ -31,57 +23,136 @@ function ClientLogo({ client, index }: { client: typeof clients[0]; index: numbe
             if (fallback) fallback.style.display = 'flex'
           }}
         />
-        {/* Fallback */}
-        <div className="hidden absolute inset-0 items-center justify-center">
-          <Building2 size={28} className="text-blue-400/60 group-hover:text-blue-400 transition-colors" />
+        <div className="hidden items-center justify-center">
+          <Building2 size={24} className="text-amber-500/60 group-hover:text-amber-500 transition-colors" />
         </div>
       </div>
-
-      <p className="relative z-10 text-xs text-white/40 group-hover:text-white/70 text-center leading-tight font-medium transition-colors">
+      <p className="text-xs text-muted group-hover:text-body text-center leading-tight font-medium transition-colors line-clamp-2">
         {client.name}
       </p>
-    </motion.div>
+    </div>
+  )
+}
+
+function ViewAllModal({ onClose }: { onClose: () => void }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.9, opacity: 0, y: 20 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          onClick={(e) => e.stopPropagation()}
+          className="bg-page w-full max-w-3xl rounded-2xl border border-card shadow-xl overflow-hidden"
+        >
+          {/* Modal header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-card">
+            <div>
+              <h3 className="text-lg font-bold text-heading">All Our Clients</h3>
+              <p className="text-xs text-muted">{clients.length} trusted partners</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="p-2 rounded-lg text-muted hover:text-heading hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          {/* Grid */}
+          <div className="p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto">
+            {clients.map((client, i) => (
+              <motion.div
+                key={client.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.25, delay: i * 0.04 }}
+                title={client.name}
+                className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-card bg-white dark:bg-gray-800 p-4 hover:border-amber-400/60 hover:shadow-sm transition-all cursor-default"
+              >
+                <div className="w-12 h-10 flex items-center justify-center">
+                  <img
+                    src={client.img}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                    onError={(e) => {
+                      const target = e.currentTarget
+                      target.style.display = 'none'
+                      const fallback = target.nextElementSibling as HTMLElement
+                      if (fallback) fallback.style.display = 'flex'
+                    }}
+                  />
+                  <div className="hidden items-center justify-center">
+                    <Building2 size={20} className="text-amber-500/60" />
+                  </div>
+                </div>
+                <p className="text-[10px] text-muted text-center leading-tight font-medium line-clamp-2">
+                  {client.name}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
 export function Clients() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
+  const [showAll, setShowAll] = useState(false)
+  // Duplicate for seamless loop
+  const loop = [...clients, ...clients]
 
   return (
-    <section id="clients" className="relative py-24 lg:py-32 bg-gray-950 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.06)_0%,transparent_60%)]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="clients" className="py-24 lg:py-32 bg-page-alt overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Our Clients"
           title="Trusted By"
           highlight="Industry Leaders"
           subtitle="We are proud to serve some of the most reputed organizations across India with reliable network infrastructure."
         />
-
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
-        >
-          {clients.map((client, i) => (
-            <ClientLogo key={client.name} client={client} index={i} />
-          ))}
-        </motion.div>
-
-        {/* Subtle note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-sm text-white/30 mt-10"
-        >
-          Serving 100+ clients across Telangana and beyond
-        </motion.p>
       </div>
+
+      {/* Carousel */}
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.6 }}
+        className="relative w-full overflow-hidden mb-10 pause-on-hover"
+      >
+        {/* Fade edges */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[var(--section-alt)] to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[var(--section-alt)] to-transparent" />
+
+        <div className="flex animate-marquee">
+          {loop.map((client, i) => (
+            <ClientLogo key={`${client.name}-${i}`} client={client} />
+          ))}
+        </div>
+      </motion.div>
+
+      {/* CTA */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-3">
+        <p className="text-sm text-muted">Serving 100+ clients across Telangana and beyond</p>
+        <button
+          onClick={() => setShowAll(true)}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-amber-300 dark:border-amber-600 text-amber-700 dark:text-amber-400 text-sm font-semibold hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all"
+        >
+          <LayoutGrid size={15} />
+          View All Clients
+        </button>
+      </div>
+
+      {showAll && <ViewAllModal onClose={() => setShowAll(false)} />}
     </section>
   )
 }

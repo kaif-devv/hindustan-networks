@@ -4,25 +4,25 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'bg-blue-600 text-white shadow hover:bg-blue-700 focus-visible:ring-blue-500',
+          'bg-amber-500 text-gray-900 shadow hover:bg-amber-600 hover:shadow-amber-500/25 hover:shadow-lg focus-visible:ring-amber-500',
         destructive:
-          'bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-red-500',
+          'bg-red-600 text-white shadow-sm hover:bg-red-700',
         outline:
-          'border border-white/20 bg-transparent text-white shadow-sm hover:bg-white/10',
+          'border-2 border-gray-900 dark:border-gray-400 bg-transparent text-gray-900 dark:text-gray-200 font-bold hover:border-amber-500 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-500/10',
         secondary:
-          'bg-white/10 text-white shadow-sm hover:bg-white/20',
+          'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700',
         ghost:
-          'hover:bg-white/10 text-white',
-        link: 'text-blue-400 underline-offset-4 hover:underline',
+          'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300',
+        link: 'text-amber-600 underline-offset-4 hover:underline',
         gradient:
-          'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg hover:shadow-blue-500/25 hover:scale-105 focus-visible:ring-blue-500',
+          'bg-gradient-to-r from-amber-500 to-yellow-400 text-gray-900 shadow hover:shadow-amber-500/30 hover:shadow-lg hover:scale-105 focus-visible:ring-amber-500',
         'outline-gradient':
-          'relative border-0 bg-transparent text-white shadow-sm gradient-border hover:bg-white/5',
+          'border border-amber-500/40 bg-transparent text-amber-600 dark:text-amber-400 hover:bg-amber-500/10',
       },
       size: {
         default: 'h-10 px-5 py-2',

@@ -24,40 +24,36 @@ export function Navbar() {
 
   const handleNav = (href: string) => {
     setMobileOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <>
       <motion.nav
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -64, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled
-            ? 'glass-dark shadow-lg shadow-black/20 border-b border-white/10'
-            : 'bg-transparent'
+          scrolled ? 'navbar-bg shadow-sm border-b border-gray-200 dark:border-gray-700/60' : 'bg-transparent'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-18">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <motion.a
+            <a
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNav('#hero') }}
-              className="flex items-center gap-2.5 group"
-              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-2.5"
             >
-              <div className="relative flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 shadow-lg shadow-blue-500/30">
-                <Network size={20} className="text-white" />
+              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-amber-500 shadow-sm">
+                <Network size={18} className="text-white" />
               </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-white font-bold text-sm tracking-wide">Hindustan</span>
-                <span className="text-cyan-400 text-[10px] font-medium tracking-widest uppercase">Networks LLP</span>
+              <div className="leading-none">
+                <div className="font-bold text-sm tracking-tight text-heading">Hindustan Networks</div>
+                <div className="text-amber-500 text-[9px] font-semibold tracking-widest uppercase">LLP</div>
               </div>
-            </motion.a>
+            </a>
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-1">
@@ -66,20 +62,20 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
-                  className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/10 transition-all duration-200"
+                  className="px-4 py-2 text-sm font-medium text-body hover:text-amber-600 dark:hover:text-amber-400 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all duration-200"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
 
-            {/* Right Side */}
+            {/* Right */}
             <div className="hidden md:flex items-center gap-3">
               <ThemeToggle />
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNav('#contact') }}
-                className="px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105 transition-all duration-200"
+                className="btn-brand text-sm px-5 py-2 rounded-lg font-semibold"
               >
                 Get a Quote
               </a>
@@ -87,7 +83,7 @@ export function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden text-white/80 hover:text-white p-2"
+              className="md:hidden p-2 text-body hover:text-amber-600 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -101,11 +97,11 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 z-40 glass-dark border-b border-white/10 px-4 py-4 md:hidden"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18 }}
+            className="fixed top-16 left-0 right-0 z-40 navbar-bg border-b border-gray-200 dark:border-gray-700 px-4 py-3 md:hidden"
           >
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -113,17 +109,17 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
-                  className="px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/10 transition-all"
+                  className="px-4 py-2.5 text-sm font-medium text-body hover:text-amber-600 dark:hover:text-amber-400 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-3 flex items-center justify-between border-t border-white/10">
+              <div className="pt-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 mt-2">
                 <ThemeToggle />
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); handleNav('#contact') }}
-                  className="px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white"
+                  className="btn-brand text-sm px-5 py-2 rounded-lg font-semibold"
                 >
                   Get a Quote
                 </a>

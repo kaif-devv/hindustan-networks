@@ -24,27 +24,33 @@ export function SectionHeader({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.55 }}
       className={cn('mb-12 lg:mb-16', align === 'center' && 'text-center', className)}
     >
       {badge && (
         <div className={cn(
-          'inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-medium tracking-wider uppercase mb-4',
+          'badge mb-4',
           align === 'center' && 'mx-auto'
         )}>
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
           {badge}
         </div>
       )}
-      <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+      <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading tracking-tight leading-tight mb-4">
         {title}{' '}
         {highlight && <span className="gradient-text">{highlight}</span>}
       </h2>
+      {align === 'center' && (
+        <div className="flex justify-center mb-4">
+          <div className="divider-brand" />
+        </div>
+      )}
+      {!align || align === 'left' ? <div className="divider-brand mb-4" /> : null}
       {subtitle && (
         <p className={cn(
-          'text-lg text-white/50 leading-relaxed',
+          'text-base lg:text-lg text-body leading-relaxed',
           align === 'center' && 'max-w-2xl mx-auto'
         )}>
           {subtitle}
