@@ -22,7 +22,7 @@ const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  || ''
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email'),
+  email: z.email('Please enter a valid email'),
   phone: z.string().optional(),
   subject: z.string().min(3, 'Subject is required'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
@@ -31,14 +31,14 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const contactInfo = [
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+91 9849533913',
-    href: 'tel:+919849533913',
-    color: 'bg-amber-100 dark:bg-amber-500/20 border-amber-200 dark:border-amber-500/30',
-    iconColor: 'text-amber-600 dark:text-amber-400',
-  },
+  // {
+  //   icon: Phone,
+  //   label: 'Phone',
+  //   value: '+91 9849533913',
+  //   href: 'tel:+919849533913',
+  //   color: 'bg-amber-100 dark:bg-amber-500/20 border-amber-200 dark:border-amber-500/30',
+  //   iconColor: 'text-amber-600 dark:text-amber-400',
+  // },
   {
     icon: Mail,
     label: 'Email',
@@ -51,7 +51,7 @@ const contactInfo = [
     icon: MapPin,
     label: 'Address',
     value: '#1-105 Suleman Colony, Shadnagar – 509216, Telangana, India',
-    href: 'https://maps.google.com/?q=Shadnagar,Telangana',
+    href: 'https://maps.app.goo.gl/PdNCabdtoV9dRkcA6',
     color: 'bg-yellow-100 dark:bg-yellow-500/20 border-yellow-200 dark:border-yellow-500/30',
     iconColor: 'text-yellow-700 dark:text-yellow-400',
   },

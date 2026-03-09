@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { clients } from '@/data/clients'
-import { SectionHeader } from '@/components/ui/SectionHeader'
-import { Building2, X, LayoutGrid } from 'lucide-react'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { clients } from "@/data/clients";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Building2, X, LayoutGrid } from "lucide-react";
 
-function ClientLogo({ client }: { client: typeof clients[0] }) {
+function ClientLogo({ client }: { client: (typeof clients)[0] }) {
   return (
     <div
       title={client.name}
@@ -17,21 +17,24 @@ function ClientLogo({ client }: { client: typeof clients[0] }) {
           alt={client.name}
           className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
           onError={(e) => {
-            const target = e.currentTarget
-            target.style.display = 'none'
-            const fallback = target.nextElementSibling as HTMLElement
-            if (fallback) fallback.style.display = 'flex'
+            const target = e.currentTarget;
+            target.style.display = "none";
+            const fallback = target.nextElementSibling as HTMLElement;
+            if (fallback) fallback.style.display = "flex";
           }}
         />
         <div className="hidden items-center justify-center">
-          <Building2 size={24} className="text-amber-500/60 group-hover:text-amber-500 transition-colors" />
+          <Building2
+            size={24}
+            className="text-amber-500/60 group-hover:text-amber-500 transition-colors"
+          />
         </div>
       </div>
       <p className="text-xs text-muted group-hover:text-body text-center leading-tight font-medium transition-colors line-clamp-2">
         {client.name}
       </p>
     </div>
-  )
+  );
 }
 
 function ViewAllModal({ onClose }: { onClose: () => void }) {
@@ -48,15 +51,19 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
           initial={{ scale: 0.9, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 20 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-page w-full max-w-3xl rounded-2xl border border-card shadow-xl overflow-hidden"
+          className="bg-page w-full max-w-5xl rounded-2xl border border-card shadow-xl overflow-hidden"
         >
           {/* Modal header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-card">
+          <div className="flex items-center justify-between px-8 py-6 border-b border-card">
             <div>
-              <h3 className="text-lg font-bold text-heading">All Our Clients</h3>
-              <p className="text-xs text-muted">{clients.length} trusted partners</p>
+              <h3 className="text-2xl font-bold text-heading">
+                All Our Clients
+              </h3>
+              <p className="text-sm text-muted">
+                {clients.length} trusted partners
+              </p>
             </div>
             <button
               onClick={onClose}
@@ -66,7 +73,7 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
             </button>
           </div>
           {/* Grid */}
-          <div className="p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto">
+          <div className="p-8 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-8 max-h-[80vh] overflow-y-auto">
             {clients.map((client, i) => (
               <motion.div
                 key={client.name}
@@ -74,25 +81,25 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.25, delay: i * 0.04 }}
                 title={client.name}
-                className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-card bg-white dark:bg-gray-800 p-4 hover:border-amber-400/60 hover:shadow-sm transition-all cursor-default"
+                className="group flex flex-col items-center justify-center gap-3 rounded-xl border border-card bg-white dark:bg-gray-800 p-6 hover:border-amber-400/60 hover:shadow-md transition-all cursor-default"
               >
-                <div className="w-12 h-10 flex items-center justify-center">
+                <div className="w-16 h-12 flex items-center justify-center">
                   <img
                     src={client.img}
                     alt={client.name}
                     className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
                     onError={(e) => {
-                      const target = e.currentTarget
-                      target.style.display = 'none'
-                      const fallback = target.nextElementSibling as HTMLElement
-                      if (fallback) fallback.style.display = 'flex'
+                      const target = e.currentTarget;
+                      target.style.display = "none";
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
                     }}
                   />
                   <div className="hidden items-center justify-center">
-                    <Building2 size={20} className="text-amber-500/60" />
+                    <Building2 size={24} className="text-amber-500/60" />
                   </div>
                 </div>
-                <p className="text-[10px] text-muted text-center leading-tight font-medium line-clamp-2">
+                <p className="text-xs text-muted text-center leading-tight font-medium line-clamp-2">
                   {client.name}
                 </p>
               </motion.div>
@@ -101,17 +108,20 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
         </motion.div>
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
 
 export function Clients() {
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
-  const [showAll, setShowAll] = useState(false)
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const [showAll, setShowAll] = useState(false);
   // Duplicate for seamless loop
-  const loop = [...clients, ...clients]
+  const loop = [...clients, ...clients];
 
   return (
-    <section id="clients" className="py-24 lg:py-32 bg-page-alt overflow-hidden">
+    <section
+      id="clients"
+      className="py-24 lg:py-32 bg-page-alt overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Our Clients"
@@ -142,7 +152,9 @@ export function Clients() {
 
       {/* CTA */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-3">
-        <p className="text-sm text-muted">Serving 100+ clients across Telangana and beyond</p>
+        <p className="text-sm text-muted">
+          Serving 100+ clients across Telangana and beyond
+        </p>
         <button
           onClick={() => setShowAll(true)}
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-amber-300 dark:border-amber-600 text-amber-700 dark:text-amber-400 text-sm font-semibold hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all"
@@ -154,5 +166,5 @@ export function Clients() {
 
       {showAll && <ViewAllModal onClose={() => setShowAll(false)} />}
     </section>
-  )
+  );
 }
