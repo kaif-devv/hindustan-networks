@@ -1,41 +1,69 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Network } from 'lucide-react'
-import { ThemeToggle } from '@/components/ThemeToggle'
-import { cn } from '@/lib/utils'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Network } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Clients', href: '#clients' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Industries", href: "#industries" },
+  { label: "Clients", href: "#clients" },
+  { label: "Contact", href: "#contact" },
+];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   const handleNav = (href: string) => {
-    setMobileOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
+    setMobileOpen(false);
+    const el = document.querySelector(href);
+    if (!el) return;
+    const navHeight = 72; // fixed navbar height + breathing room
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   return (
     <>
       <motion.nav
         initial={{ y: -64, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled ? 'navbar-bg shadow-sm border-b border-gray-200 dark:border-gray-700/60' : 'bg-transparent'
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          scrolled
+            ? "navbar-bg shadow-sm border-b border-gray-200 dark:border-gray-700/60"
+            : "bg-transparent",
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,30 +71,66 @@ export function Navbar() {
             {/* Logo */}
             <a
               href="#hero"
-              onClick={(e) => { e.preventDefault(); handleNav('#hero') }}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav("#hero");
+              }}
               className="flex items-center gap-2.5"
             >
               <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-amber-500 shadow-sm">
                 <Network size={18} className="text-white" />
               </div>
               <div className="leading-none">
-                <div className="font-bold text-sm tracking-tight text-heading">Hindustan Networks</div>
-                <div className="text-amber-500 text-[9px] font-semibold tracking-widest uppercase">LLP</div>
+                <div className="font-bold text-sm tracking-tight text-heading">
+                  Hindustan Networks
+                </div>
+                <div className="text-amber-500 text-[9px] font-semibold tracking-widest uppercase">
+                  LLP
+                </div>
               </div>
             </a>
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
-                  className="px-4 py-2 text-sm font-medium text-body hover:text-amber-600 dark:hover:text-amber-400 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all duration-200"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const id = link.href.replace("#", "");
+                const isActive = activeSection === id;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav(link.href);
+                    }}
+                    className="relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full"
+                    style={{ color: isActive ? "#111827" : undefined }}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        className="absolute inset-0 rounded-full bg-amber-400"
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 32,
+                        }}
+                        style={{ zIndex: -1 }}
+                      />
+                    )}
+                    <span
+                      className={cn(
+                        "relative z-10 transition-colors duration-200",
+                        isActive
+                          ? "text-gray-900 font-semibold"
+                          : "text-body hover:text-amber-600 dark:hover:text-amber-400",
+                      )}
+                    >
+                      {link.label}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
 
             {/* Right */}
@@ -74,7 +138,10 @@ export function Navbar() {
               <ThemeToggle />
               <a
                 href="#contact"
-                onClick={(e) => { e.preventDefault(); handleNav('#contact') }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav("#contact");
+                }}
                 className="btn-brand text-sm px-5 py-2 rounded-lg font-semibold"
               >
                 Get a Quote
@@ -104,21 +171,36 @@ export function Navbar() {
             className="fixed top-16 left-0 right-0 z-40 navbar-bg border-b border-gray-200 dark:border-gray-700 px-4 py-3 md:hidden"
           >
             <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
-                  className="px-4 py-2.5 text-sm font-medium text-body hover:text-amber-600 dark:hover:text-amber-400 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const id = link.href.replace("#", "");
+                const isActive = activeSection === id;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav(link.href);
+                    }}
+                    className={cn(
+                      "px-4 py-2.5 text-sm font-medium rounded-lg transition-all",
+                      isActive
+                        ? "bg-amber-400 text-gray-900 font-semibold"
+                        : "text-body hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-500/10",
+                    )}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="pt-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 mt-2">
                 <ThemeToggle />
                 <a
                   href="#contact"
-                  onClick={(e) => { e.preventDefault(); handleNav('#contact') }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav("#contact");
+                  }}
                   className="btn-brand text-sm px-5 py-2 rounded-lg font-semibold"
                 >
                   Get a Quote
@@ -129,5 +211,5 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

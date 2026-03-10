@@ -154,7 +154,7 @@ export function Contact() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="card flex items-center justify-center h-40 hover:border-amber-400/40 transition-all"
+              className="card flex items-center justify-center h-30 hover:border-amber-400/40 transition-all"
             >
               <div className="text-center">
                 <MapPin size={28} className="text-amber-500/60 mx-auto mb-2" />
