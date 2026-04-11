@@ -1,8 +1,8 @@
-# Hindustan Networks LLP
+# Hindustan Networks
 
 > Comprehensive Network & Communication Solutions
 
-Official website for **Hindustan Networks LLP** — a leading provider of end-to-end network and communication infrastructure solutions serving businesses in and around Shadnagar, Telangana since 2017.
+Official website for **Hindustan Networks ** — a leading provider of end-to-end network and communication infrastructure solutions serving businesses in and around Shadnagar, Telangana since 2017.
 
 🌐 **Live site:** https://kaif-devv.github.io/hindustan-networks/
 
@@ -49,7 +49,7 @@ npm run preview
 
 ## Contact
 
-**Hindustan Networks LLP**  
+**Hindustan Networks **  
 #1-105 Suleman Colony, Shadnagar – 509216, Telangana, India  
 📞 +91 9849533913  
 📧 info@hindustannetworks.com

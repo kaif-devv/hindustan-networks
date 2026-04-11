@@ -67,9 +67,7 @@ export function Hero() {
           >
             Hindustan <span className="gradient-text">Networks</span>
             <br />
-            <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-muted">
-              LLP
-            </span>
+            <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-muted"></span>
           </motion.h1>
 
           {/* Subtitle */}

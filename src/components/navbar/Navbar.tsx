@@ -84,9 +84,7 @@ export function Navbar() {
                 <div className="font-bold text-sm tracking-tight text-heading">
                   Hindustan Networks
                 </div>
-                <div className="text-amber-500 text-[9px] font-semibold tracking-widest uppercase">
-                  LLP
-                </div>
+                <div className="text-amber-500 text-[9px] font-semibold tracking-widest uppercase"></div>
               </div>
             </a>
 

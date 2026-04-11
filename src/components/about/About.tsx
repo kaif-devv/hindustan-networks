@@ -47,7 +47,7 @@ export function About() {
           badge="About Us"
           title="Building Digital"
           highlight="Infrastructure"
-          subtitle="Hindustan Networks LLP is a leading provider of end-to-end network and communication infrastructure solutions serving businesses in and around Shadnagar, Telangana."
+          subtitle="Hindustan Networks  is a leading provider of end-to-end network and communication infrastructure solutions serving businesses in and around Shadnagar, Telangana."
         />
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
@@ -67,7 +67,7 @@ export function About() {
               <span className="gradient-text">Network Excellence</span>
             </h3>
             <p className="text-body leading-relaxed mb-6">
-              Since 2017, Hindustan Networks LLP has been at the forefront of
+              Since 2017, Hindustan Networks has been at the forefront of
               delivering comprehensive network and communication solutions to
               enterprises, institutions and government bodies. Our expertise
               spans structured cabling, fiber optics, enterprise WiFi,

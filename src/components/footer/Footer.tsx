@@ -1,37 +1,47 @@
-import { motion } from 'framer-motion'
-import { Network, Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowRight } from 'lucide-react'
+import { motion } from "framer-motion";
+import {
+  Network,
+  Phone,
+  Mail,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
+  ArrowRight,
+} from "lucide-react";
 
 const quickLinks = [
-  { label: 'About Us', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Clients', href: '#clients' },
-  { label: 'Vision & Mission', href: '#vision' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: "About Us", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Industries", href: "#industries" },
+  { label: "Clients", href: "#clients" },
+  { label: "Vision & Mission", href: "#vision" },
+  { label: "Contact", href: "#contact" },
+];
 
 const serviceLinks = [
-  'Internet Leased Lines',
-  'LAN Networking',
-  'CCTV Surveillance',
-  'Access Control',
-  'WiFi Networking',
-  'Server Setup',
-  'Optical Fiber',
-  'AMC Services',
-]
+  "Internet Leased Lines",
+  "LAN Networking",
+  "CCTV Surveillance",
+  "Access Control",
+  "WiFi Networking",
+  "Server Setup",
+  "Optical Fiber",
+  "AMC Services",
+];
 
 const socials = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-]
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+];
 
 export function Footer() {
   const handleNav = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800">
@@ -45,12 +55,15 @@ export function Footer() {
                 <Network size={20} className="text-white" />
               </div>
               <div>
-                <div className="text-white font-bold text-sm tracking-wide leading-none">Hindustan Networks</div>
-                <div className="text-amber-400 text-[9px] font-semibold tracking-widest uppercase">LLP</div>
+                <div className="text-white font-bold text-sm tracking-wide leading-none">
+                  Hindustan Networks
+                </div>
+                <div className="text-amber-400 text-[9px] font-semibold tracking-widest uppercase"></div>
               </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
-              Comprehensive network &amp; communication infrastructure solutions since 2017.
+              Comprehensive network &amp; communication infrastructure solutions
+              since 2017.
             </p>
             {/* Socials */}
             <div className="flex items-center gap-2">
@@ -70,16 +83,24 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">
+              Quick Links
+            </h4>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav(link.href);
+                    }}
                     className="group flex items-center gap-1.5 text-sm text-gray-400 hover:text-amber-400 transition-colors"
                   >
-                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400" />
+                    <ArrowRight
+                      size={12}
+                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400"
+                    />
                     {link.label}
                   </a>
                 </li>
@@ -89,16 +110,24 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">Services</h4>
+            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">
+              Services
+            </h4>
             <ul className="space-y-2.5">
               {serviceLinks.map((service) => (
                 <li key={service}>
                   <a
                     href="#services"
-                    onClick={(e) => { e.preventDefault(); handleNav('#services') }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav("#services");
+                    }}
                     className="group flex items-center gap-1.5 text-sm text-gray-400 hover:text-amber-400 transition-colors"
                   >
-                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400" />
+                    <ArrowRight
+                      size={12}
+                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400"
+                    />
                     {service}
                   </a>
                 </li>
@@ -108,15 +137,25 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">Contact Info</h4>
+            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">
+              Contact Info
+            </h4>
             <div className="space-y-4">
-              <a href="tel:+919849533913" className="flex items-start gap-3 group">
+              <a
+                href="tel:+919849533913"
+                className="flex items-start gap-3 group"
+              >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/20 shrink-0 mt-0.5">
                   <Phone size={14} className="text-amber-400" />
                 </div>
-                <span className="text-sm text-gray-400 group-hover:text-amber-400 transition-colors">+91 9849533913</span>
+                <span className="text-sm text-gray-400 group-hover:text-amber-400 transition-colors">
+                  +91 9849533913
+                </span>
               </a>
-              <a href="mailto:info@hindustannetworks.com" className="flex items-start gap-3 group">
+              <a
+                href="mailto:info@hindustannetworks.com"
+                className="flex items-start gap-3 group"
+              >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/20 shrink-0 mt-0.5">
                   <Mail size={14} className="text-amber-400" />
                 </div>
@@ -129,8 +168,10 @@ export function Footer() {
                   <MapPin size={14} className="text-amber-400" />
                 </div>
                 <span className="text-sm text-gray-400 leading-relaxed">
-                  #1-105 Suleman Colony,<br />
-                  Shadnagar – 509216,<br />
+                  #1-105 Suleman Colony,
+                  <br />
+                  Shadnagar – 509216,
+                  <br />
                   Telangana, India
                 </span>
               </div>
@@ -141,7 +182,8 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Hindustan Networks LLP. All rights reserved.
+            © {new Date().getFullYear()} Hindustan Networks . All rights
+            reserved.
           </p>
           <p className="text-xs text-gray-600">
             #1-105 Suleman Colony, Shadnagar, Telangana – 509216
@@ -149,5 +191,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
