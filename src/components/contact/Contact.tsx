@@ -45,22 +45,21 @@ const contactInfo = [
     value: "info@hindustannetworks.com",
     href: "mailto:info@hindustannetworks.com",
     color:
-      "bg-orange-100 dark:bg-orange-500/20 border-orange-200 dark:border-orange-500/30",
-    iconColor: "text-orange-600 dark:text-orange-400",
+      "bg-brand-50 dark:bg-brand-500/10 border-brand-100 dark:border-brand-500/20",
+    iconColor: "text-brand-600 dark:text-brand-300",
   },
   {
     icon: MapPin,
     label: "Address",
     value: "#1-105 Suleman Colony, Shadnagar – 509216, Telangana, India",
     href: "https://maps.app.goo.gl/PdNCabdtoV9dRkcA6",
-    color:
-      "bg-yellow-100 dark:bg-yellow-500/20 border-yellow-200 dark:border-yellow-500/30",
-    iconColor: "text-yellow-700 dark:text-yellow-400",
+    color: "bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20",
+    iconColor: "text-sky-700 dark:text-sky-300",
   },
 ];
 
 const inputClass =
-  "w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-800 border-2 border-amber-200 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:border-amber-500 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all";
+  "w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-brand-100 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/15 transition-colors";
 const labelClass =
   "block text-xs text-muted font-semibold mb-1.5 tracking-wide uppercase";
 
@@ -107,7 +106,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-page">
+    <section id="contact" className="py-20 lg:py-28 bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Contact Us"
@@ -142,7 +141,7 @@ export function Contact() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="card group flex items-start gap-4 hover:border-amber-400/40 hover:shadow-sm transition-all duration-300 p-5"
+                className="card group flex items-start gap-4 hover:border-brand-300 hover:shadow-sm transition-all duration-200 p-5"
               >
                 <div
                   className={`flex items-center justify-center w-10 h-10 rounded-xl border shrink-0 ${item.color}`}
@@ -165,10 +164,10 @@ export function Contact() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="card flex items-center justify-center h-30 hover:border-amber-400/40 transition-all"
+              className="card flex items-center justify-center h-30 hover:border-brand-300 transition-all"
             >
               <div className="text-center">
-                <MapPin size={28} className="text-amber-500/60 mx-auto mb-2" />
+                <MapPin size={28} className="text-brand-500/70 mx-auto mb-2" />
                 <p className="text-xs text-muted">Shadnagar, Telangana</p>
                 <p className="text-xs text-muted/60">509216</p>
               </div>
@@ -184,7 +183,7 @@ export function Contact() {
           >
             <div className="card p-7 lg:p-9">
               {/* Amber top accent - bleeds to card edges */}
-              <div className="h-1 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-t-[calc(1rem-1px)] -mx-7 lg:-mx-9 -mt-7 lg:-mt-9 mb-7" />
+              <div className="h-1 bg-gradient-to-r from-brand-600 to-brand-300 rounded-t-[calc(1rem-1px)] -mx-7 lg:-mx-9 -mt-7 lg:-mt-9 mb-7" />
 
               {submitted ? (
                 <motion.div
@@ -192,10 +191,10 @@ export function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-12 text-center gap-4"
                 >
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-500/20 border border-green-200 dark:border-green-500/30">
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20">
                     <CheckCircle
                       size={32}
-                      className="text-green-600 dark:text-green-400"
+                      className="text-brand-600 dark:text-brand-300"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-heading">

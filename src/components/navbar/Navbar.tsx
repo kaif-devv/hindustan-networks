@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Network } from "lucide-react";
+import { Menu, X, Network, ArrowRight } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
@@ -46,10 +46,17 @@ export function Navbar() {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (!el) return;
-    const navHeight = 72; // fixed navbar height + breathing room
-    const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+    const sectionEl = document.querySelector<HTMLElement>(href);
+    if (!sectionEl) return;
+
+    // Prefer aligning section title near top instead of section container.
+    const headingEl = sectionEl.querySelector<HTMLElement>("h2");
+    const targetEl = headingEl ?? sectionEl;
+    const navEl = document.querySelector<HTMLElement>("nav");
+    const navOffset = (navEl?.getBoundingClientRect().height ?? 72) + 14;
+    const top =
+      targetEl.getBoundingClientRect().top + window.scrollY - navOffset;
+
     window.scrollTo({ top, behavior: "smooth" });
   };
 
@@ -58,41 +65,49 @@ export function Navbar() {
       <motion.nav
         initial={{ y: -64, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "navbar-bg shadow-sm border-b border-gray-200 dark:border-gray-700/60"
-            : "bg-transparent",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
+          scrolled ? "pt-3 sm:pt-4" : "bg-transparent",
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+          <div
+            className={cn(
+              "relative flex items-center justify-between gap-4 rounded-[1.4rem] border px-4 py-3 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.06)]",
+              scrolled
+                ? "navbar-bg border-card bg-white/85 dark:bg-slate-950/90"
+                : "bg-white/70 dark:bg-slate-950/60 border-white/70 dark:border-slate-800/70",
+            )}
+          >
+            {/* Brand */}
             <a
               href="#hero"
               onClick={(e) => {
                 e.preventDefault();
                 handleNav("#hero");
               }}
-              className="flex items-center gap-2.5"
+              className="flex items-center gap-3 shrink-0"
             >
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-amber-500 shadow-sm">
-                <Network size={18} className="text-white" />
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-600 text-white shadow-sm">
+                <Network size={18} />
               </div>
-              <div className="leading-none">
-                <div className="font-bold text-sm tracking-tight text-heading">
+              <div className="leading-none hidden sm:block">
+                <div className="font-semibold text-sm tracking-tight text-heading">
                   Hindustan Networks
                 </div>
-                <div className="text-amber-500 text-[9px] font-semibold tracking-widest uppercase"></div>
+                <div className="text-xs text-muted">
+                  Network & communication systems
+                </div>
               </div>
             </a>
 
-            {/* Desktop Links */}
-            <div className="hidden md:flex items-center gap-1">
+            {/* Desktop switcher */}
+            <div className="hidden lg:flex items-center gap-1 rounded-full border border-card bg-slate-50/90 dark:bg-slate-900/60 px-2 py-1">
               {navLinks.map((link) => {
                 const id = link.href.replace("#", "");
                 const isActive = activeSection === id;
+
                 return (
                   <a
                     key={link.label}
@@ -101,38 +116,29 @@ export function Navbar() {
                       e.preventDefault();
                       handleNav(link.href);
                     }}
-                    className="relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full"
-                    style={{ color: isActive ? "#111827" : undefined }}
-                  >
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-pill"
-                        className="absolute inset-0 rounded-full bg-amber-400"
-                        transition={{
-                          type: "spring",
-                          stiffness: 380,
-                          damping: 32,
-                        }}
-                        style={{ zIndex: -1 }}
-                      />
+                    className={cn(
+                      "group relative flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors",
+                      isActive
+                        ? "bg-white text-brand-700 shadow-sm dark:bg-slate-950 dark:text-brand-200"
+                        : "text-muted hover:text-brand-600 dark:hover:text-brand-300",
                     )}
+                  >
                     <span
                       className={cn(
-                        "relative z-10 transition-colors duration-200",
+                        "h-1.5 w-1.5 rounded-full transition-colors",
                         isActive
-                          ? "text-gray-900 font-semibold"
-                          : "text-body hover:text-amber-600 dark:hover:text-amber-400",
+                          ? "bg-brand-500"
+                          : "bg-slate-300 group-hover:bg-brand-400 dark:bg-slate-600",
                       )}
-                    >
-                      {link.label}
-                    </span>
+                    />
+                    {link.label}
                   </a>
                 );
               })}
             </div>
 
-            {/* Right */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* Desktop actions */}
+            <div className="hidden md:flex items-center gap-3 shrink-0">
               <ThemeToggle />
               <a
                 href="#contact"
@@ -140,15 +146,16 @@ export function Navbar() {
                   e.preventDefault();
                   handleNav("#contact");
                 }}
-                className="btn-brand text-sm px-5 py-2 rounded-lg font-semibold"
+                className="btn-brand text-sm px-4 py-2 rounded-full font-semibold"
               >
                 Get a Quote
+                <ArrowRight size={14} />
               </a>
             </div>
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden p-2 text-body hover:text-amber-600 transition-colors"
+              className="md:hidden p-2 text-body hover:text-brand-600 transition-colors shrink-0"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -166,32 +173,44 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18 }}
-            className="fixed top-16 left-0 right-0 z-40 navbar-bg border-b border-gray-200 dark:border-gray-700 px-4 py-3 md:hidden"
+            className="fixed top-[76px] left-0 right-0 z-40 px-4 md:hidden"
           >
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => {
-                const id = link.href.replace("#", "");
-                const isActive = activeSection === id;
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNav(link.href);
-                    }}
-                    className={cn(
-                      "px-4 py-2.5 text-sm font-medium rounded-lg transition-all",
-                      isActive
-                        ? "bg-amber-400 text-gray-900 font-semibold"
-                        : "text-body hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-500/10",
-                    )}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
-              <div className="pt-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 mt-2">
+            <div className="rounded-[1.4rem] border border-card bg-white/95 dark:bg-slate-950/95 p-3 shadow-[0_16px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+              <div className="grid gap-2">
+                {navLinks.map((link) => {
+                  const id = link.href.replace("#", "");
+                  const isActive = activeSection === id;
+
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNav(link.href);
+                      }}
+                      className={cn(
+                        "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                        isActive
+                          ? "bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-200"
+                          : "text-body hover:bg-slate-50 hover:text-brand-600 dark:hover:bg-slate-900 dark:hover:text-brand-300",
+                      )}
+                    >
+                      <span>{link.label}</span>
+                      <span
+                        className={cn(
+                          "h-2 w-2 rounded-full transition-colors",
+                          isActive
+                            ? "bg-brand-500"
+                            : "bg-slate-300 dark:bg-slate-600",
+                        )}
+                      />
+                    </a>
+                  );
+                })}
+              </div>
+
+              <div className="mt-3 flex items-center justify-between gap-3 border-t border-card pt-3">
                 <ThemeToggle />
                 <a
                   href="#contact"
@@ -199,9 +218,10 @@ export function Navbar() {
                     e.preventDefault();
                     handleNav("#contact");
                   }}
-                  className="btn-brand text-sm px-5 py-2 rounded-lg font-semibold"
+                  className="btn-brand text-sm px-4 py-2 rounded-full font-semibold"
                 >
                   Get a Quote
+                  <ArrowRight size={14} />
                 </a>
               </div>
             </div>

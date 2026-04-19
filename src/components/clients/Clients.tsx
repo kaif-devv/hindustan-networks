@@ -9,7 +9,7 @@ function ClientLogo({ client }: { client: (typeof clients)[0] }) {
   return (
     <div
       title={client.name}
-      className="group flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-amber-100 dark:border-gray-700 bg-white dark:bg-gray-800 px-8 py-6 mx-4 min-w-[200px] h-[140px] hover:border-amber-400 hover:shadow-lg transition-all duration-300 cursor-default"
+      className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-brand-100 dark:border-slate-700 bg-white dark:bg-slate-900 px-8 py-6 mx-4 min-w-[200px] h-[140px] hover:border-brand-300 hover:shadow-sm transition-all duration-200 cursor-default"
     >
       <div className="w-20 h-14 flex items-center justify-center">
         <img
@@ -26,7 +26,7 @@ function ClientLogo({ client }: { client: (typeof clients)[0] }) {
         <div className="hidden items-center justify-center">
           <Building2
             size={24}
-            className="text-amber-500/60 group-hover:text-amber-500 transition-colors"
+            className="text-brand-400/60 group-hover:text-brand-500 transition-colors"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
           initial={{ scale: 0.9, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 20 }}
-          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          transition={{ duration: 0.35 }}
           onClick={(e) => e.stopPropagation()}
           className="bg-page w-full max-w-5xl rounded-2xl border border-card shadow-xl overflow-hidden"
         >
@@ -120,7 +120,7 @@ export function Clients() {
   return (
     <section
       id="clients"
-      className="py-24 lg:py-32 bg-page-alt overflow-hidden"
+      className="py-20 lg:py-28 bg-page-alt overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -157,7 +157,7 @@ export function Clients() {
         </p>
         <button
           onClick={() => setShowAll(true)}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-amber-300 dark:border-amber-600 text-amber-700 dark:text-amber-400 text-sm font-semibold hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-brand-200 dark:border-brand-500/40 text-brand-700 dark:text-brand-200 text-sm font-semibold hover:bg-brand-50 dark:hover:bg-brand-500/10 transition-colors"
         >
           <LayoutGrid size={15} />
           View All Clients

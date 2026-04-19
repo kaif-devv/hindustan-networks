@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from "lucide-react";
 import {
   Wifi,
   Network,
@@ -15,104 +15,119 @@ import {
   Video,
   Cloud,
   Wrench,
-} from 'lucide-react'
+} from "lucide-react";
 
 export interface Service {
-  icon: LucideIcon
-  title: string
-  description: string
-  color: string
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: string;
 }
 
 export const services: Service[] = [
   {
     icon: Zap,
-    title: 'Internet Leased Line Connectivity',
-    description: 'Dedicated high-speed internet leased lines ensuring maximum uptime and bandwidth for your enterprise.',
-    color: 'from-amber-500 to-yellow-400',
+    title: "Internet Leased Line Connectivity",
+    description:
+      "Dedicated high-speed internet leased lines ensuring maximum uptime and bandwidth for your enterprise.",
+    color: "from-brand-600 to-brand-400",
   },
   {
     icon: Network,
-    title: 'Local LAN Networking',
-    description: 'Complete LAN infrastructure design, installation and management for seamless office connectivity.',
-    color: 'from-amber-600 to-amber-400',
+    title: "Local LAN Networking",
+    description:
+      "Complete LAN infrastructure design, installation and management for seamless office connectivity.",
+    color: "from-brand-700 to-brand-500",
   },
   {
     icon: Cable,
-    title: 'Structured Cabling (LAN/WAN)',
-    description: 'Professional structured cabling solutions compliant with industry standards for reliable data transmission.',
-    color: 'from-orange-500 to-amber-500',
+    title: "Structured Cabling (LAN/WAN)",
+    description:
+      "Professional structured cabling solutions compliant with industry standards for reliable data transmission.",
+    color: "from-brand-500 to-sky-400",
   },
   {
     icon: Camera,
-    title: 'CCTV Surveillance Systems',
-    description: 'Advanced IP-based CCTV surveillance systems with remote monitoring for comprehensive security.',
-    color: 'from-orange-600 to-orange-400',
+    title: "CCTV Surveillance Systems",
+    description:
+      "Advanced IP-based CCTV surveillance systems with remote monitoring for comprehensive security.",
+    color: "from-brand-600 to-sky-500",
   },
   {
     icon: Phone,
-    title: 'Intercom Systems',
-    description: 'Modern IP and analog intercom solutions for seamless internal communication across facilities.',
-    color: 'from-amber-500 to-orange-500',
+    title: "Intercom Systems",
+    description:
+      "Modern IP and analog intercom solutions for seamless internal communication across facilities.",
+    color: "from-brand-500 to-brand-300",
   },
   {
     icon: ShieldCheck,
-    title: 'Access Control Systems',
-    description: 'Secure access control solutions with smart card, PIN and biometric integration.',
-    color: 'from-yellow-500 to-amber-500',
+    title: "Access Control Systems",
+    description:
+      "Secure access control solutions with smart card, PIN and biometric integration.",
+    color: "from-sky-500 to-brand-400",
   },
   {
     icon: Fingerprint,
-    title: 'Biometric & Face Recognition',
-    description: 'Cutting-edge biometric and AI-powered face recognition systems for enterprise security.',
-    color: 'from-amber-700 to-yellow-500',
+    title: "Biometric & Face Recognition",
+    description:
+      "Cutting-edge biometric and AI-powered face recognition systems for enterprise security.",
+    color: "from-brand-700 to-brand-500",
   },
   {
     icon: Wifi,
-    title: 'WiFi & Hotspot Networking',
-    description: 'Enterprise-grade WiFi deployments with seamless roaming and centralized management.',
-    color: 'from-yellow-400 to-amber-500',
+    title: "WiFi & Hotspot Networking",
+    description:
+      "Enterprise-grade WiFi deployments with seamless roaming and centralized management.",
+    color: "from-brand-400 to-sky-300",
   },
   {
     icon: Server,
-    title: 'Server & Data Center Setup',
-    description: 'End-to-end server room and data center design, deployment and management services.',
-    color: 'from-gray-600 to-amber-600',
+    title: "Server & Data Center Setup",
+    description:
+      "End-to-end server room and data center design, deployment and management services.",
+    color: "from-slate-700 to-brand-500",
   },
   {
     icon: Radio,
-    title: 'Optical Fiber Cabling Projects',
-    description: 'High-capacity optical fiber cabling for long-distance, high-bandwidth network requirements.',
-    color: 'from-amber-500 to-yellow-500',
+    title: "Optical Fiber Cabling Projects",
+    description:
+      "High-capacity optical fiber cabling for long-distance, high-bandwidth network requirements.",
+    color: "from-brand-500 to-brand-300",
   },
   {
     icon: Lock,
-    title: 'Network Security & Firewall',
-    description: 'Advanced firewall, UTM and network security solutions to protect your critical infrastructure.',
-    color: 'from-orange-600 to-amber-500',
+    title: "Network Security & Firewall",
+    description:
+      "Advanced firewall, UTM and network security solutions to protect your critical infrastructure.",
+    color: "from-brand-700 to-sky-500",
   },
   {
     icon: Home,
-    title: 'Home & Office Automation',
-    description: 'Smart automation solutions for homes and offices integrating security, lighting and climate control.',
-    color: 'from-amber-500 to-orange-400',
+    title: "Home & Office Automation",
+    description:
+      "Smart automation solutions for homes and offices integrating security, lighting and climate control.",
+    color: "from-brand-500 to-sky-400",
   },
   {
     icon: Video,
-    title: 'Audio / Video Conferencing',
-    description: 'Professional AV conferencing systems for boardrooms, classrooms and collaboration spaces.',
-    color: 'from-yellow-500 to-orange-500',
+    title: "Audio / Video Conferencing",
+    description:
+      "Professional AV conferencing systems for boardrooms, classrooms and collaboration spaces.",
+    color: "from-sky-500 to-brand-500",
   },
   {
     icon: Cloud,
-    title: 'Cloud Integration & IT Infrastructure',
-    description: 'Seamless cloud migration, hybrid infrastructure and IT services for modern businesses.',
-    color: 'from-amber-400 to-yellow-400',
+    title: "Cloud Integration & IT Infrastructure",
+    description:
+      "Seamless cloud migration, hybrid infrastructure and IT services for modern businesses.",
+    color: "from-brand-400 to-sky-300",
   },
   {
     icon: Wrench,
-    title: 'Annual Maintenance Contracts',
-    description: 'Comprehensive AMC packages ensuring optimal performance and priority support year-round.',
-    color: 'from-orange-500 to-amber-400',
+    title: "Annual Maintenance Contracts",
+    description:
+      "Comprehensive AMC packages ensuring optimal performance and priority support year-round.",
+    color: "from-brand-600 to-brand-300",
   },
-]
+];

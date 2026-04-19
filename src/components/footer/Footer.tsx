@@ -44,21 +44,21 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800">
+    <footer className="bg-slate-950 text-white border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Upper footer */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14 lg:py-18">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-amber-500 shadow-sm">
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-500 shadow-sm">
                 <Network size={20} className="text-white" />
               </div>
               <div>
                 <div className="text-white font-bold text-sm tracking-wide leading-none">
                   Hindustan Networks
                 </div>
-                <div className="text-amber-400 text-[9px] font-semibold tracking-widest uppercase"></div>
+                <div className="text-brand-300 text-[9px] font-semibold tracking-widest uppercase"></div>
               </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
@@ -72,7 +72,7 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   whileHover={{ y: -2 }}
-                  className="flex items-center justify-center w-9 h-9 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 hover:text-amber-400 hover:border-amber-500/50 transition-all"
+                  className="flex items-center justify-center w-9 h-9 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:text-brand-200 hover:border-brand-400/50 transition-colors"
                   aria-label={s.label}
                 >
                   <s.icon size={15} />
@@ -95,11 +95,11 @@ export function Footer() {
                       e.preventDefault();
                       handleNav(link.href);
                     }}
-                    className="group flex items-center gap-1.5 text-sm text-gray-400 hover:text-amber-400 transition-colors"
+                    className="group flex items-center gap-1.5 text-sm text-slate-300 hover:text-brand-200 transition-colors"
                   >
                     <ArrowRight
                       size={12}
-                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400"
+                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-brand-300"
                     />
                     {link.label}
                   </a>
@@ -122,11 +122,11 @@ export function Footer() {
                       e.preventDefault();
                       handleNav("#services");
                     }}
-                    className="group flex items-center gap-1.5 text-sm text-gray-400 hover:text-amber-400 transition-colors"
+                    className="group flex items-center gap-1.5 text-sm text-slate-300 hover:text-brand-200 transition-colors"
                   >
                     <ArrowRight
                       size={12}
-                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400"
+                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-brand-300"
                     />
                     {service}
                   </a>
@@ -145,10 +145,10 @@ export function Footer() {
                 href="tel:+919849533913"
                 className="flex items-start gap-3 group"
               >
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/20 shrink-0 mt-0.5">
-                  <Phone size={14} className="text-amber-400" />
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-400/20 shrink-0 mt-0.5">
+                  <Phone size={14} className="text-brand-300" />
                 </div>
-                <span className="text-sm text-gray-400 group-hover:text-amber-400 transition-colors">
+                <span className="text-sm text-slate-300 group-hover:text-brand-200 transition-colors">
                   +91 9849533913
                 </span>
               </a>
@@ -156,18 +156,18 @@ export function Footer() {
                 href="mailto:info@hindustannetworks.com"
                 className="flex items-start gap-3 group"
               >
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/20 shrink-0 mt-0.5">
-                  <Mail size={14} className="text-amber-400" />
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-400/20 shrink-0 mt-0.5">
+                  <Mail size={14} className="text-brand-300" />
                 </div>
-                <span className="text-sm text-gray-400 group-hover:text-amber-400 transition-colors break-all">
+                <span className="text-sm text-slate-300 group-hover:text-brand-200 transition-colors break-all">
                   info@hindustannetworks.com
                 </span>
               </a>
               <div className="flex items-start gap-3">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/20 shrink-0 mt-0.5">
-                  <MapPin size={14} className="text-amber-400" />
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-400/20 shrink-0 mt-0.5">
+                  <MapPin size={14} className="text-brand-300" />
                 </div>
-                <span className="text-sm text-gray-400 leading-relaxed">
+                <span className="text-sm text-slate-300 leading-relaxed">
                   #1-105 Suleman Colony,
                   <br />
                   Shadnagar – 509216,
@@ -180,12 +180,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-gray-500">
+        <div className="border-t border-slate-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-slate-400">
             © {new Date().getFullYear()} Hindustan Networks . All rights
             reserved.
           </p>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs text-slate-500">
             #1-105 Suleman Colony, Shadnagar, Telangana – 509216
           </p>
         </div>

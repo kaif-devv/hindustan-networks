@@ -20,13 +20,13 @@ function StatCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -4 }}
-      className="card group hover:border-amber-400/40 transition-all duration-300 flex flex-col"
+      className="card group hover:border-brand-300 transition-all duration-200 flex flex-col"
     >
-      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-500/20 border border-amber-200 dark:border-amber-500/30 mb-4 group-hover:bg-amber-200 dark:group-hover:bg-amber-500/30 transition-colors">
-        <Icon size={22} className="text-amber-600 dark:text-amber-400" />
+      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20 mb-4 group-hover:bg-brand-100 dark:group-hover:bg-brand-500/20 transition-colors">
+        <Icon size={22} className="text-brand-600 dark:text-brand-300" />
       </div>
-      <div className="text-3xl font-black text-heading mb-1">{value}</div>
-      <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-2">
+      <div className="text-3xl font-semibold text-heading mb-1">{value}</div>
+      <div className="text-sm font-medium text-brand-600 dark:text-brand-300 mb-2">
         {label}
       </div>
       <div className="text-xs text-muted leading-relaxed">{desc}</div>
@@ -40,7 +40,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative py-24 lg:py-32 bg-page overflow-hidden"
+      className="relative py-20 lg:py-28 bg-page overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -58,11 +58,11 @@ export function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 text-sm text-amber-600 dark:text-amber-400 mb-4">
+            <div className="inline-flex items-center gap-2 text-sm text-brand-600 dark:text-brand-300 mb-4">
               <MapPin size={14} />
               <span>Shadnagar, Telangana, India</span>
             </div>
-            <h3 className="text-3xl font-bold text-heading mb-6 leading-tight">
+            <h3 className="text-3xl font-semibold text-heading mb-6 leading-tight">
               Your Trusted Partner in{" "}
               <span className="gradient-text">Network Excellence</span>
             </h3>
@@ -82,7 +82,7 @@ export function About() {
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                   className="flex items-center gap-3 text-sm text-body"
                 >
-                  <v.icon size={16} className="text-amber-500 shrink-0" />
+                  <v.icon size={16} className="text-brand-500 shrink-0" />
                   {v.text}
                 </motion.div>
               ))}
@@ -103,9 +103,9 @@ export function About() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.45, delay: 0.25 + i * 0.1 }}
-                  className="card text-center py-8 hover:border-amber-400/40 hover:shadow-md transition-all"
+                  className="card text-center py-8 hover:border-brand-300 hover:shadow-sm transition-all"
                 >
-                  <div className="text-4xl font-black gradient-text mb-2">
+                  <div className="text-4xl font-semibold gradient-text mb-2">
                     {item.value}
                   </div>
                   <div className="text-sm text-muted font-medium">
@@ -115,7 +115,7 @@ export function About() {
               ))}
             </div>
             {/* Decorative accent */}
-            <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-brand-500/10 rounded-full blur-2xl pointer-events-none" />
           </motion.div>
         </div>
 

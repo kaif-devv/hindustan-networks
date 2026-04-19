@@ -1,33 +1,24 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 /* Use .dark class (not OS media query) for all dark: utilities */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Brand palette - Corporate Orange/Yellow/Grey */
-  --color-brand-50: #fffbeb;
-  --color-brand-100: #fef3c7;
-  --color-brand-200: #fde68a;
-  --color-brand-300: #fcd34d;
-  --color-brand-400: #fbbf24;
-  --color-brand-500: #f59e0b;
-  --color-brand-600: #d97706;
-  --color-brand-700: #b45309;
-  --color-brand-800: #92400e;
-  --color-brand-900: #78350f;
+  /* Blue brand palette */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
 
-  --color-accent-400: #facc15;
-  --color-accent-500: #eab308;
+  --color-accent-400: #60a5fa;
+  --color-accent-500: #3b82f6;
 
   --color-surface-50: #f9fafb;
   --color-surface-100: #f3f4f6;
@@ -41,9 +32,8 @@
   --color-surface-900: #111827;
   --color-surface-950: #030712;
 
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-  /* Reduce global font weights by 100 on average */
   --font-weight-medium: 400;
   --font-weight-semibold: 500;
   --font-weight-bold: 600;
@@ -60,43 +50,41 @@
 
 @layer base {
   :root {
-    /* Light mode */
     --bg: #ffffff;
-    --bg-secondary: #f3f4f6;
+    --bg-secondary: #f8fafc;
     --bg-card: #ffffff;
-    --bg-card-border: #e5e7eb;
-    --text-primary: #111827;
-    --text-secondary: #4b5563;
-    --text-muted: #9ca3af;
-    --brand: #f59e0b;
-    --brand-hover: #d97706;
-    --accent: #facc15;
-    --navbar-bg: rgba(255,255,255,0.95);
-    --navbar-border: rgba(229,231,235,0.8);
-    --section-alt: #f9fafb;
+    --bg-card-border: #dbe4f0;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --brand: #2563eb;
+    --brand-hover: #1d4ed8;
+    --accent: #60a5fa;
+    --navbar-bg: rgba(255,255,255,0.9);
+    --navbar-border: rgba(219,228,240,0.9);
+    --section-alt: #f8fafc;
   }
 
   .dark {
-    /* Dark mode */
-    --bg: #111827;
-    --bg-secondary: #1f2937;
-    --bg-card: #1f2937;
-    --bg-card-border: #374151;
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
-    --brand: #f59e0b;
-    --brand-hover: #fbbf24;
-    --accent: #facc15;
-    --navbar-bg: rgba(17,24,39,0.95);
-    --navbar-border: rgba(55,65,81,0.8);
-    --section-alt: #1f2937;
+    --bg: #0f172a;
+    --bg-secondary: #111c33;
+    --bg-card: #111c33;
+    --bg-card-border: #27344a;
+    --text-primary: #eff6ff;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --brand: #60a5fa;
+    --brand-hover: #93c5fd;
+    --accent: #93c5fd;
+    --navbar-bg: rgba(15,23,42,0.92);
+    --navbar-border: rgba(39,52,74,0.9);
+    --section-alt: #111c33;
   }
 
   * {
     box-sizing: border-box;
-    transition-property: background-color, border-color, color;
-    transition-duration: 200ms;
+    transition-property: background-color, border-color, color, box-shadow, opacity;
+    transition-duration: 160ms;
     transition-timing-function: ease;
   }
 
@@ -146,19 +134,18 @@
     gap: 0.5rem;
     padding: 0.625rem 1.5rem;
     background-color: var(--brand);
-    color: #111827;
+    color: #ffffff;
     font-weight: 600;
     font-size: 0.875rem;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    transition: background-color 0.16s, box-shadow 0.16s, opacity 0.16s;
     text-decoration: none;
   }
   .btn-brand:hover {
     background-color: var(--brand-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(245,158,11,0.35);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.18);
   }
 
   .btn-outline {
@@ -170,21 +157,21 @@
     color: var(--text-primary);
     font-weight: 600;
     font-size: 0.875rem;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     border: 1.5px solid var(--bg-card-border);
     cursor: pointer;
-    transition: border-color 0.2s, background-color 0.2s, transform 0.15s;
+    transition: border-color 0.16s, background-color 0.16s, box-shadow 0.16s;
     text-decoration: none;
   }
   .btn-outline:hover {
     border-color: var(--brand);
     color: var(--brand);
-    transform: translateY(-1px);
+    background-color: rgba(37,99,235,0.04);
   }
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, #f59e0b, #facc15);
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -195,26 +182,25 @@
     background-color: var(--bg-card);
     border: 1px solid var(--bg-card-border);
     border-radius: 1rem;
-    padding: 1.5rem;
-    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    padding: 1.25rem;
+    transition: box-shadow 0.16s, border-color 0.16s, transform 0.16s;
   }
   .card:hover {
-    border-color: rgba(245,158,11,0.4);
-    box-shadow: 0 4px 24px rgba(245,158,11,0.08);
-    transform: translateY(-2px);
+    border-color: rgba(37,99,235,0.25);
+    box-shadow: 0 8px 26px rgba(15,23,42,0.06);
+    transform: translateY(-1px);
   }
-  /* Use .card.p-0 or override padding inline when cards need custom padding */
   .card-flush {
     background-color: var(--bg-card);
     border: 1px solid var(--bg-card-border);
     border-radius: 1rem;
     overflow: hidden;
-    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    transition: box-shadow 0.16s, border-color 0.16s, transform 0.16s;
   }
   .card-flush:hover {
-    border-color: rgba(245,158,11,0.4);
-    box-shadow: 0 4px 24px rgba(245,158,11,0.08);
-    transform: translateY(-2px);
+    border-color: rgba(37,99,235,0.25);
+    box-shadow: 0 8px 26px rgba(15,23,42,0.06);
+    transform: translateY(-1px);
   }
 
   /* Section badge */
@@ -224,8 +210,8 @@
     gap: 0.375rem;
     padding: 0.25rem 0.875rem;
     border-radius: 9999px;
-    background-color: rgba(245,158,11,0.1);
-    border: 1px solid rgba(245,158,11,0.25);
+    background-color: rgba(37,99,235,0.08);
+    border: 1px solid rgba(37,99,235,0.16);
     color: var(--brand);
     font-size: 0.7rem;
     font-weight: 600;
@@ -237,21 +223,21 @@
   .divider-brand {
     width: 3rem;
     height: 3px;
-    background: linear-gradient(90deg, #f59e0b, #facc15);
+    background: linear-gradient(90deg, #2563eb, #93c5fd);
     border-radius: 2px;
   }
 
-  /* Orange glow for dark mode cards */
+  /* Blue glow for dark mode cards */
   .glow-brand {
-    box-shadow: 0 0 32px rgba(245,158,11,0.15);
+    box-shadow: 0 0 32px rgba(37,99,235,0.14);
   }
 
   /* Marquee animation */
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 36s linear infinite;
   }
   .animate-marquee-slow {
-    animation: marquee 50s linear infinite;
+    animation: marquee 56s linear infinite;
   }
   .pause-on-hover:hover .animate-marquee,
   .pause-on-hover:hover .animate-marquee-slow {
@@ -265,7 +251,7 @@
   .navbar-bg {
     background-color: var(--navbar-bg);
     border-bottom: 1px solid var(--navbar-border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 }
