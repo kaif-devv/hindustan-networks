@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hindustan Networks</title>
+    <script>
+      (function () {
+        var base = "/hindustan-networks";
+        var location = window.location;
+
+        if (location.pathname.indexOf(base + "/") === 0) {
+          var path = location.pathname.slice((base + "/").length - 1);
+          var query = new URLSearchParams();
+          query.set("path", path);
+          if (location.search) {
+            query.set("search", location.search.slice(1));
+          }
+          if (location.hash) {
+            query.set("hash", location.hash.slice(1));
+          }
+          location.replace(base + "/?" + query.toString());
+        } else {
+          location.replace(base + "/");
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
