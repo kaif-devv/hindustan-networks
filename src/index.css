@@ -1,24 +1,21 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
-/* Use .dark class (not OS media query) for all dark: utilities */
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  /* Blue brand palette */
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-800: #1e40af;
-  --color-brand-900: #1e3a8a;
+  /* Warm brand palette */
+  --color-brand-50: #fff8e1;
+  --color-brand-100: #ffefc2;
+  --color-brand-200: #ffe39a;
+  --color-brand-300: #ffd166;
+  --color-brand-400: #ffbf47;
+  --color-brand-500: #ffa726;
+  --color-brand-600: #fb8c00;
+  --color-brand-700: #ef6c00;
+  --color-brand-800: #db5f00;
+  --color-brand-900: #b45309;
 
-  --color-accent-400: #60a5fa;
-  --color-accent-500: #3b82f6;
+  --color-accent-400: #ffbf47;
+  --color-accent-500: #fb8c00;
 
   --color-surface-50: #f9fafb;
   --color-surface-100: #f3f4f6;
@@ -50,35 +47,19 @@
 
 @layer base {
   :root {
-    --bg: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-card-border: #dbe4f0;
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
-    --text-muted: #64748b;
-    --brand: #2563eb;
-    --brand-hover: #1d4ed8;
-    --accent: #60a5fa;
-    --navbar-bg: rgba(255,255,255,0.9);
-    --navbar-border: rgba(219,228,240,0.9);
-    --section-alt: #f8fafc;
-  }
-
-  .dark {
-    --bg: #0f172a;
-    --bg-secondary: #111c33;
-    --bg-card: #111c33;
-    --bg-card-border: #27344a;
-    --text-primary: #eff6ff;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --brand: #60a5fa;
-    --brand-hover: #93c5fd;
-    --accent: #93c5fd;
-    --navbar-bg: rgba(15,23,42,0.92);
-    --navbar-border: rgba(39,52,74,0.9);
-    --section-alt: #111c33;
+    --bg: #fffdf7;
+    --bg-secondary: #fff4d6;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-border: rgba(251, 140, 0, 0.2);
+    --text-primary: #4b5563;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --brand: #fb8c00;
+    --brand-hover: #ef6c00;
+    --accent: #ffbf47;
+    --navbar-bg: rgba(255, 248, 225, 0.9);
+    --navbar-border: rgba(251, 140, 0, 0.18);
+    --section-alt: #fff8e8;
   }
 
   * {
@@ -89,11 +70,14 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   body {
-    background-color: var(--bg);
+    background:
+      radial-gradient(980px 420px at 92% -12%, rgba(255, 209, 102, 0.34), transparent 62%),
+      radial-gradient(760px 420px at -8% 28%, rgba(251, 140, 0, 0.17), transparent 56%),
+      linear-gradient(165deg, #fffdf7 0%, #fff6de 60%, #fff2cf 100%);
     color: var(--text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -134,7 +118,7 @@
     gap: 0.5rem;
     padding: 0.625rem 1.5rem;
     background-color: var(--brand);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.875rem;
     border-radius: 0.75rem;
@@ -145,7 +129,7 @@
   }
   .btn-brand:hover {
     background-color: var(--brand-hover);
-    box-shadow: 0 8px 24px rgba(37,99,235,0.18);
+    box-shadow: 0 10px 24px rgba(251, 140, 0, 0.22);
   }
 
   .btn-outline {
@@ -166,12 +150,12 @@
   .btn-outline:hover {
     border-color: var(--brand);
     color: var(--brand);
-    background-color: rgba(37,99,235,0.04);
+    background-color: rgba(251, 140, 0, 0.08);
   }
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    background: linear-gradient(115deg, #fb8c00, #ffbf47);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -181,25 +165,29 @@
   .card {
     background-color: var(--bg-card);
     border: 1px solid var(--bg-card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 1rem;
     padding: 1.25rem;
     transition: box-shadow 0.16s, border-color 0.16s, transform 0.16s;
   }
   .card:hover {
-    border-color: rgba(37,99,235,0.25);
-    box-shadow: 0 8px 26px rgba(15,23,42,0.06);
+    border-color: rgba(251, 140, 0, 0.32);
+    box-shadow: 0 12px 28px rgba(251, 140, 0, 0.12);
     transform: translateY(-1px);
   }
   .card-flush {
     background-color: var(--bg-card);
     border: 1px solid var(--bg-card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 1rem;
     overflow: hidden;
     transition: box-shadow 0.16s, border-color 0.16s, transform 0.16s;
   }
   .card-flush:hover {
-    border-color: rgba(37,99,235,0.25);
-    box-shadow: 0 8px 26px rgba(15,23,42,0.06);
+    border-color: rgba(251, 140, 0, 0.32);
+    box-shadow: 0 12px 28px rgba(251, 140, 0, 0.12);
     transform: translateY(-1px);
   }
 
@@ -210,8 +198,8 @@
     gap: 0.375rem;
     padding: 0.25rem 0.875rem;
     border-radius: 9999px;
-    background-color: rgba(37,99,235,0.08);
-    border: 1px solid rgba(37,99,235,0.16);
+    background-color: rgba(255, 209, 102, 0.24);
+    border: 1px solid rgba(251, 140, 0, 0.24);
     color: var(--brand);
     font-size: 0.7rem;
     font-weight: 600;
@@ -223,13 +211,13 @@
   .divider-brand {
     width: 3rem;
     height: 3px;
-    background: linear-gradient(90deg, #2563eb, #93c5fd);
+    background: linear-gradient(90deg, #fb8c00, #ffbf47);
     border-radius: 2px;
   }
 
   /* Blue glow for dark mode cards */
   .glow-brand {
-    box-shadow: 0 0 32px rgba(37,99,235,0.14);
+    box-shadow: 0 0 24px rgba(251, 140, 0, 0.2);
   }
 
   /* Marquee animation */
@@ -253,5 +241,16 @@
     border-bottom: 1px solid var(--navbar-border);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+  }
+
+  .app-shell {
+    background:
+      radial-gradient(900px 520px at 95% -15%, rgba(255, 209, 102, 0.26), transparent 60%),
+      radial-gradient(700px 420px at -10% 20%, rgba(251, 140, 0, 0.14), transparent 56%),
+      linear-gradient(180deg, #fffdf7 0%, #fff5db 54%, #fffdf7 100%);
+  }
+
+  .route-stage {
+    min-height: calc(100vh - 13rem);
   }
 }

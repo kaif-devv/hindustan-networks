@@ -9,19 +9,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-brand-600 text-white shadow-sm hover:bg-brand-700 focus-visible:ring-brand-500",
-        destructive: "bg-red-600 text-white shadow-sm hover:bg-red-700",
+          "bg-brand-600 text-surface-700 shadow-sm hover:bg-brand-700 focus-visible:ring-brand-500",
+        destructive: "bg-red-600 text-surface-700 shadow-sm hover:bg-red-700",
         outline:
-          "border-2 border-brand-300 dark:border-brand-500/40 bg-transparent text-brand-700 dark:text-brand-200 font-semibold hover:border-brand-500 hover:text-brand-700 dark:hover:text-brand-100 hover:bg-brand-50 dark:hover:bg-brand-500/10",
-        secondary:
-          "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700",
-        ghost:
-          "hover:bg-brand-50 dark:hover:bg-brand-500/10 text-slate-700 dark:text-slate-300",
+          "border-2 border-brand-300 bg-transparent text-surface-700 font-semibold hover:border-brand-500 hover:text-surface-700 hover:bg-brand-50",
+        secondary: "bg-brand-100 text-surface-700 hover:bg-brand-200",
+        ghost: "hover:bg-brand-50 text-surface-700",
         link: "text-brand-600 underline-offset-4 hover:underline",
         gradient:
-          "bg-gradient-to-r from-brand-600 to-brand-400 text-white shadow-sm hover:shadow-md focus-visible:ring-brand-500",
+          "bg-gradient-to-r from-brand-700 to-brand-400 text-surface-700 shadow-sm hover:shadow-md focus-visible:ring-brand-500",
         "outline-gradient":
-          "border border-brand-300 bg-transparent text-brand-700 dark:text-brand-200 hover:bg-brand-50 dark:hover:bg-brand-500/10",
+          "border border-brand-300 bg-transparent text-surface-700 hover:bg-brand-50",
       },
       size: {
         default: "h-10 px-5 py-2",

@@ -31,35 +31,26 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const contactInfo = [
-  // {
-  //   icon: Phone,
-  //   label: 'Phone',
-  //   value: '+91 9849533913',
-  //   href: 'tel:+919849533913',
-  //   color: 'bg-amber-100 dark:bg-amber-500/20 border-amber-200 dark:border-amber-500/30',
-  //   iconColor: 'text-amber-600 dark:text-amber-400',
-  // },
   {
     icon: Mail,
     label: "Email",
     value: "info@hindustannetworks.com",
     href: "mailto:info@hindustannetworks.com",
-    color:
-      "bg-brand-50 dark:bg-brand-500/10 border-brand-100 dark:border-brand-500/20",
-    iconColor: "text-brand-600 dark:text-brand-300",
+    color: "bg-brand-50 border-brand-100",
+    iconColor: "text-brand-700",
   },
   {
     icon: MapPin,
     label: "Address",
     value: "#1-105 Suleman Colony, Shadnagar – 509216, Telangana, India",
     href: "https://maps.app.goo.gl/PdNCabdtoV9dRkcA6",
-    color: "bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20",
-    iconColor: "text-sky-700 dark:text-sky-300",
+    color: "bg-brand-50 border-brand-100",
+    iconColor: "text-brand-700",
   },
 ];
 
 const inputClass =
-  "w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-brand-100 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/15 transition-colors";
+  "w-full px-4 py-3 rounded-xl bg-white border border-brand-100 text-body text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/15 transition-colors";
 const labelClass =
   "block text-xs text-muted font-semibold mb-1.5 tracking-wide uppercase";
 
@@ -106,7 +97,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-page">
+    <section id="contact" className="pt-8 pb-20 lg:pt-10 lg:pb-24 bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Contact Us"
@@ -191,11 +182,8 @@ export function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-12 text-center gap-4"
                 >
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20">
-                    <CheckCircle
-                      size={32}
-                      className="text-brand-600 dark:text-brand-300"
-                    />
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-brand-50 border border-brand-100">
+                    <CheckCircle size={32} className="text-brand-700" />
                   </div>
                   <h3 className="text-xl font-bold text-heading">
                     Message Sent!
@@ -212,7 +200,7 @@ export function Contact() {
                   </h3>
 
                   {error && (
-                    <div className="px-4 py-3 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-sm text-red-600 dark:text-red-400">
+                    <div className="px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm text-brand-700">
                       {error}
                     </div>
                   )}
@@ -222,7 +210,7 @@ export function Contact() {
                       <label className={labelClass}>Your Name *</label>
                       <input {...register("name")} className={inputClass} />
                       {errors.name && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-brand-700 text-xs mt-1">
                           {errors.name.message}
                         </p>
                       )}
@@ -235,7 +223,7 @@ export function Contact() {
                         className={inputClass}
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-brand-700 text-xs mt-1">
                           {errors.email.message}
                         </p>
                       )}
@@ -255,7 +243,7 @@ export function Contact() {
                       <label className={labelClass}>Subject *</label>
                       <input {...register("subject")} className={inputClass} />
                       {errors.subject && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-brand-700 text-xs mt-1">
                           {errors.subject.message}
                         </p>
                       )}
@@ -271,7 +259,7 @@ export function Contact() {
                       className={`${inputClass} resize-none`}
                     />
                     {errors.message && (
-                      <p className="text-red-500 text-xs mt-1">
+                      <p className="text-brand-700 text-xs mt-1">
                         {errors.message.message}
                       </p>
                     )}

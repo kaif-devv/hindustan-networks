@@ -22,13 +22,11 @@ function StatCard({
       whileHover={{ y: -4 }}
       className="card group hover:border-brand-300 transition-all duration-200 flex flex-col"
     >
-      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20 mb-4 group-hover:bg-brand-100 dark:group-hover:bg-brand-500/20 transition-colors">
-        <Icon size={22} className="text-brand-600 dark:text-brand-300" />
+      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 mb-4 group-hover:bg-brand-100 transition-colors">
+        <Icon size={22} className="text-brand-700" />
       </div>
       <div className="text-3xl font-semibold text-heading mb-1">{value}</div>
-      <div className="text-sm font-medium text-brand-600 dark:text-brand-300 mb-2">
-        {label}
-      </div>
+      <div className="text-sm font-medium text-brand-700 mb-2">{label}</div>
       <div className="text-xs text-muted leading-relaxed">{desc}</div>
     </motion.div>
   );
@@ -40,7 +38,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative py-20 lg:py-28 bg-page overflow-hidden"
+      className="relative pt-8 pb-20 lg:pt-10 lg:pb-24 bg-page overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -58,7 +56,7 @@ export function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 text-sm text-brand-600 dark:text-brand-300 mb-4">
+            <div className="inline-flex items-center gap-2 text-sm text-brand-700 mb-4">
               <MapPin size={14} />
               <span>Shadnagar, Telangana, India</span>
             </div>

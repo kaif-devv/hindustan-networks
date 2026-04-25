@@ -34,10 +34,10 @@ export function Vision() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-400 shadow-sm">
-                <Eye size={22} className="text-white" />
+                <Eye size={22} className="text-surface-700" />
               </div>
               <div>
-                <div className="text-xs text-brand-600 dark:text-brand-300 font-medium tracking-wider uppercase mb-0.5">
+                <div className="text-xs text-brand-700 font-medium tracking-wider uppercase mb-0.5">
                   Our
                 </div>
                 <h3 className="text-2xl font-semibold text-heading">Vision</h3>
@@ -45,9 +45,7 @@ export function Vision() {
             </div>
             <p className="text-body leading-relaxed text-base">
               To be recognized as a{" "}
-              <span className="text-brand-600 dark:text-brand-300 font-medium">
-                trusted leader
-              </span>{" "}
+              <span className="text-brand-700 font-medium">trusted leader</span>{" "}
               in network and communication solutions — providing innovative,
               reliable and scalable technologies that empower businesses to
               thrive in a connected world.
@@ -67,11 +65,11 @@ export function Vision() {
             className="card hover:border-brand-300 hover:shadow-sm transition-all duration-200 flex flex-col"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-brand-500 shadow-sm">
-                <Target size={22} className="text-white" />
+              <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-700 to-brand-500 shadow-sm">
+                <Target size={22} className="text-surface-700" />
               </div>
               <div>
-                <div className="text-xs text-brand-600 dark:text-brand-300 font-medium tracking-wider uppercase mb-0.5">
+                <div className="text-xs text-brand-700 font-medium tracking-wider uppercase mb-0.5">
                   Our
                 </div>
                 <h3 className="text-2xl font-semibold text-heading">Mission</h3>

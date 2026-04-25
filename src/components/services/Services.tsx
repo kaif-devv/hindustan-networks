@@ -37,7 +37,7 @@ function ServiceCard({
           service.color,
         )}
       >
-        <service.icon size={22} className="text-white" />
+        <service.icon size={22} className="text-surface-700" />
       </div>
 
       <h3 className="text-base font-semibold text-heading mb-2 leading-tight">
@@ -50,7 +50,7 @@ function ServiceCard({
 
 export function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-page-alt">
+    <section id="services" className="pt-8 pb-20 lg:pt-10 lg:pb-24 bg-page-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="What We Do"

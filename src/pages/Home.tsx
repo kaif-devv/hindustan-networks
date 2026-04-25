@@ -1,18 +1,9 @@
-import { HelmetProvider, Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/navbar/Navbar";
+import { Helmet } from "react-helmet-async";
 import { Hero } from "@/components/hero/Hero";
-import { About } from "@/components/about/About";
-import { Services } from "@/components/services/Services";
-import { Industries } from "@/components/industries/Industries";
-import { Strengths } from "@/components/strengths/Strengths";
-import { Clients } from "@/components/clients/Clients";
-import { Vision } from "@/components/vision/Vision";
-import { Contact } from "@/components/contact/Contact";
-import { Footer } from "@/components/footer/Footer";
 
 export function Home() {
   return (
-    <HelmetProvider>
+    <>
       <Helmet>
         <title>
           Hindustan Networks – Comprehensive Network & Communication Solutions
@@ -33,18 +24,9 @@ export function Home() {
         <link rel="canonical" href="https://hindustannetworks.com" />
       </Helmet>
 
-      <Navbar />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Industries />
-        <Strengths />
-        <Clients />
-        <Vision />
-        <Contact />
       </main>
-      <Footer />
-    </HelmetProvider>
+    </>
   );
 }

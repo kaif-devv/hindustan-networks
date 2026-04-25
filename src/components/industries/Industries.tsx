@@ -28,25 +28,25 @@ const industries = [
     icon: Hospital,
     title: "Hospitals & Healthcare",
     desc: "Reliable medical-grade networks, IP telephony, surveillance and biometric access.",
-    color: "from-brand-500 to-sky-400",
+    color: "from-brand-500 to-brand-300",
   },
   {
     icon: ShoppingBag,
     title: "Hospitality & Retail",
     desc: "Seamless guest WiFi, POS connectivity, IP CCTV and centralized monitoring systems.",
-    color: "from-sky-500 to-brand-400",
+    color: "from-brand-700 to-brand-400",
   },
   {
     icon: Home,
     title: "Residential Projects",
     desc: "Smart home automation, fiber internet, intercom and apartment surveillance systems.",
-    color: "from-brand-500 to-sky-300",
+    color: "from-brand-500 to-brand-200",
   },
   {
     icon: Landmark,
     title: "Government & Public Sector",
     desc: "Secure government networks, fiber projects, video conferencing and IT infrastructure.",
-    color: "from-brand-700 to-sky-500",
+    color: "from-brand-700 to-brand-500",
   },
 ];
 
@@ -75,7 +75,7 @@ function IndustryCard({
             industry.color,
           )}
         >
-          <industry.icon size={28} className="text-white" />
+          <industry.icon size={28} className="text-surface-700" />
         </div>
         <h3 className="text-lg font-bold text-heading">{industry.title}</h3>
         <p className="text-sm text-body leading-relaxed">{industry.desc}</p>
@@ -86,7 +86,7 @@ function IndustryCard({
 
 export function Industries() {
   return (
-    <section id="industries" className="py-20 lg:py-28 bg-page">
+    <section id="industries" className="pt-8 pb-20 lg:pt-10 lg:pb-24 bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Industries"

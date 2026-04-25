@@ -44,14 +44,14 @@ export const services: Service[] = [
     title: "Structured Cabling (LAN/WAN)",
     description:
       "Professional structured cabling solutions compliant with industry standards for reliable data transmission.",
-    color: "from-brand-500 to-sky-400",
+    color: "from-brand-500 to-brand-300",
   },
   {
     icon: Camera,
     title: "CCTV Surveillance Systems",
     description:
       "Advanced IP-based CCTV surveillance systems with remote monitoring for comprehensive security.",
-    color: "from-brand-600 to-sky-500",
+    color: "from-brand-600 to-brand-400",
   },
   {
     icon: Phone,
@@ -65,7 +65,7 @@ export const services: Service[] = [
     title: "Access Control Systems",
     description:
       "Secure access control solutions with smart card, PIN and biometric integration.",
-    color: "from-sky-500 to-brand-400",
+    color: "from-brand-700 to-brand-400",
   },
   {
     icon: Fingerprint,
@@ -79,14 +79,14 @@ export const services: Service[] = [
     title: "WiFi & Hotspot Networking",
     description:
       "Enterprise-grade WiFi deployments with seamless roaming and centralized management.",
-    color: "from-brand-400 to-sky-300",
+    color: "from-brand-400 to-brand-200",
   },
   {
     icon: Server,
     title: "Server & Data Center Setup",
     description:
       "End-to-end server room and data center design, deployment and management services.",
-    color: "from-slate-700 to-brand-500",
+    color: "from-brand-800 to-brand-500",
   },
   {
     icon: Radio,
@@ -100,28 +100,28 @@ export const services: Service[] = [
     title: "Network Security & Firewall",
     description:
       "Advanced firewall, UTM and network security solutions to protect your critical infrastructure.",
-    color: "from-brand-700 to-sky-500",
+    color: "from-brand-700 to-brand-500",
   },
   {
     icon: Home,
     title: "Home & Office Automation",
     description:
       "Smart automation solutions for homes and offices integrating security, lighting and climate control.",
-    color: "from-brand-500 to-sky-400",
+    color: "from-brand-500 to-brand-300",
   },
   {
     icon: Video,
     title: "Audio / Video Conferencing",
     description:
       "Professional AV conferencing systems for boardrooms, classrooms and collaboration spaces.",
-    color: "from-sky-500 to-brand-500",
+    color: "from-brand-700 to-brand-500",
   },
   {
     icon: Cloud,
     title: "Cloud Integration & IT Infrastructure",
     description:
       "Seamless cloud migration, hybrid infrastructure and IT services for modern businesses.",
-    color: "from-brand-400 to-sky-300",
+    color: "from-brand-400 to-brand-200",
   },
   {
     icon: Wrench,

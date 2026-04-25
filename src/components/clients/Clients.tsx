@@ -9,7 +9,7 @@ function ClientLogo({ client }: { client: (typeof clients)[0] }) {
   return (
     <div
       title={client.name}
-      className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-brand-100 dark:border-slate-700 bg-white dark:bg-slate-900 px-8 py-6 mx-4 min-w-[200px] h-[140px] hover:border-brand-300 hover:shadow-sm transition-all duration-200 cursor-default"
+      className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-brand-100 bg-white px-8 py-6 mx-4 min-w-[200px] h-[140px] hover:border-brand-300 hover:shadow-sm transition-all duration-200 cursor-default"
     >
       <div className="w-20 h-14 flex items-center justify-center">
         <img
@@ -67,7 +67,7 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg text-muted hover:text-heading hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+              className="p-2 rounded-lg text-muted hover:text-heading hover:bg-brand-50 transition-all"
             >
               <X size={20} />
             </button>
@@ -81,7 +81,7 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.25, delay: i * 0.04 }}
                 title={client.name}
-                className="group flex flex-col items-center justify-center gap-3 rounded-xl border border-card bg-white dark:bg-gray-800 p-6 hover:border-amber-400/60 hover:shadow-md transition-all cursor-default"
+                className="group flex flex-col items-center justify-center gap-3 rounded-xl border border-card bg-white p-6 hover:border-brand-400/50 hover:shadow-md transition-all cursor-default"
               >
                 <div className="w-16 h-12 flex items-center justify-center">
                   <img
@@ -96,7 +96,7 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
                     }}
                   />
                   <div className="hidden items-center justify-center">
-                    <Building2 size={24} className="text-amber-500/60" />
+                    <Building2 size={24} className="text-brand-400/60" />
                   </div>
                 </div>
                 <p className="text-xs text-muted text-center leading-tight font-medium line-clamp-2">
@@ -120,7 +120,7 @@ export function Clients() {
   return (
     <section
       id="clients"
-      className="py-20 lg:py-28 bg-page-alt overflow-hidden"
+      className="pt-8 pb-20 lg:pt-10 lg:pb-24 bg-page-alt overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -157,7 +157,7 @@ export function Clients() {
         </p>
         <button
           onClick={() => setShowAll(true)}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-brand-200 dark:border-brand-500/40 text-brand-700 dark:text-brand-200 text-sm font-semibold hover:bg-brand-50 dark:hover:bg-brand-500/10 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-brand-200 text-brand-700 text-sm font-semibold hover:bg-brand-50 transition-colors"
         >
           <LayoutGrid size={15} />
           View All Clients

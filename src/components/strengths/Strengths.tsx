@@ -29,21 +29,21 @@ const strengths = [
     icon: ShieldCheck,
     title: "Quality Assurance",
     desc: "Rigorous quality control at every stage ensuring deployments meet and exceed international standards.",
-    color: "from-sky-500 to-brand-400",
+    color: "from-brand-700 to-brand-400",
     delay: 0.2,
   },
   {
     icon: HeartHandshake,
     title: "Customer Centric Approach",
     desc: "Tailored solutions designed around your unique business requirements with dedicated support.",
-    color: "from-brand-500 to-sky-400",
+    color: "from-brand-500 to-brand-300",
     delay: 0.3,
   },
   {
     icon: Clock,
     title: "Timely Execution",
     desc: "Proven project management methodology ensuring on-time delivery without compromising quality.",
-    color: "from-brand-500 to-sky-300",
+    color: "from-brand-500 to-brand-200",
     delay: 0.4,
   },
 ];
@@ -80,7 +80,7 @@ export function Strengths() {
                   s.color,
                 )}
               >
-                <s.icon size={24} className="text-white" />
+                <s.icon size={24} className="text-surface-700" />
               </div>
               <h3 className="text-xl font-semibold text-heading mb-3">
                 {s.title}
