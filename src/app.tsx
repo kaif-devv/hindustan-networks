@@ -52,7 +52,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <div className="app-shell min-h-screen">
           <ScrollToTop />
           <Navbar />
