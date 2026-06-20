@@ -13,9 +13,9 @@ function ClientLogo({ client }: { client: (typeof clients)[0] }) {
     >
       <div className="w-20 h-14 flex items-center justify-center">
         <img
-          src={client.img}
+          src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${client.img}`}
           alt={client.name}
-          className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+          className="max-w-full max-h-full object-contain opacity-100 transition-all duration-300"
           onError={(e) => {
             const target = e.currentTarget;
             target.style.display = "none";
@@ -85,9 +85,9 @@ function ViewAllModal({ onClose }: { onClose: () => void }) {
               >
                 <div className="w-16 h-12 flex items-center justify-center">
                   <img
-                    src={client.img}
+                    src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${client.img}`}
                     alt={client.name}
-                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain opacity-100 transition-all duration-300"
                     onError={(e) => {
                       const target = e.currentTarget;
                       target.style.display = "none";
