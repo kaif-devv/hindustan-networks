@@ -42,7 +42,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Address",
-    value: "#1-105 Suleman Colony, Shadnagar – 509216, Telangana, India",
+    value: "#1-105, first floor, Shadnagar, Future City – 509216, Telangana, India",
     href: "https://maps.app.goo.gl/PdNCabdtoV9dRkcA6",
     color: "bg-brand-50 border-brand-100",
     iconColor: "text-brand-700",
@@ -151,18 +151,7 @@ export function Contact() {
             ))}
 
             {/* Map placeholder */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="card flex items-center justify-center h-30 hover:border-brand-300 transition-all"
-            >
-              <div className="text-center">
-                <MapPin size={28} className="text-brand-500/70 mx-auto mb-2" />
-                <p className="text-xs text-muted">Shadnagar, Telangana</p>
-                <p className="text-xs text-muted/60">509216</p>
-              </div>
-            </motion.div>
+            
           </motion.div>
 
           {/* Contact Form */}
