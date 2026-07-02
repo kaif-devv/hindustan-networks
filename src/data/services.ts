@@ -3,17 +3,21 @@ import {
   Wifi,
   Network,
   Cable,
-  Camera,
+  Cctv,
   Phone,
-  ShieldCheck,
-  Fingerprint,
-  Radio,
-  Server,
+  DoorOpen,
+  ScanFace,
+  RadioTower,
+  ServerCog,
   Zap,
-  Lock,
+  ShieldAlert,
+  ShieldBan,
+  Router,
+  MonitorCog,
+  Factory,
   Home,
   Video,
-  Cloud,
+  CloudCog,
   Wrench,
 } from "lucide-react";
 
@@ -70,7 +74,7 @@ export const services: Service[] = [
     color: "from-brand-500 to-brand-300",
   },
   {
-    icon: Camera,
+    icon: Cctv,
     title: "CCTV Surveillance Systems",
     description:
       "Advanced IP-based CCTV surveillance systems with remote monitoring for comprehensive security.",
@@ -98,7 +102,7 @@ export const services: Service[] = [
     color: "from-brand-500 to-brand-300",
   },
   {
-    icon: ShieldCheck,
+    icon: DoorOpen,
     title: "Access Control Systems",
     description:
       "Secure access control solutions with smart card, PIN and biometric integration.",
@@ -112,7 +116,7 @@ export const services: Service[] = [
     color: "from-brand-700 to-brand-400",
   },
   {
-    icon: Fingerprint,
+    icon: ScanFace,
     title: "Biometric & Face Recognition",
     description:
       "Cutting-edge biometric and AI-powered face recognition systems for enterprise security.",
@@ -140,7 +144,7 @@ export const services: Service[] = [
     color: "from-brand-400 to-brand-200",
   },
   {
-    icon: Server,
+    icon: ServerCog,
     title: "Server & Data Center Setup",
     description:
       "End-to-end server room and data center design, deployment and management services.",
@@ -154,7 +158,7 @@ export const services: Service[] = [
     color: "from-brand-800 to-brand-500",
   },
   {
-    icon: Radio,
+    icon: RadioTower,
     title: "Optical Fiber Cabling Projects",
     description:
       "High-capacity optical fiber cabling for long-distance, high-bandwidth network requirements.",
@@ -168,7 +172,7 @@ export const services: Service[] = [
     color: "from-brand-500 to-brand-300",
   },
   {
-    icon: Lock,
+    icon: ShieldBan,
     title: "Network Security & Firewall",
     description:
       "Advanced firewall, UTM and network security solutions to protect your critical infrastructure.",
@@ -180,6 +184,62 @@ export const services: Service[] = [
       "Continuous security threat reporting",
     ],
     color: "from-brand-700 to-brand-500",
+  },
+  {
+    icon: ShieldAlert,
+    title: "Cybersecurity & Endpoint Protection",
+    description:
+      "Practical cybersecurity controls for endpoints, users, cloud access and business-critical networks.",
+    detailedDesc: "Strengthen your organization with layered cybersecurity covering endpoint protection, email security, identity controls, vulnerability reviews, secure VPN access, and response-ready monitoring. We focus on practical protection that suits day-to-day business operations.",
+    features: [
+      "Endpoint antivirus / EDR deployment",
+      "Email and web security controls",
+      "Vulnerability review and hardening",
+      "User access and MFA implementation",
+    ],
+    color: "from-brand-800 to-brand-500",
+  },
+  {
+    icon: Factory,
+    title: "Manufacturing IT & OT Networking",
+    description:
+      "Reliable plant-floor connectivity for manufacturing units, warehouses and industrial operations.",
+    detailedDesc: "Build dependable industrial networks for production floors, warehouses, quality labs and administrative blocks. We plan segmentation between IT and OT environments, camera coverage, fiber backbones, access control and resilient switching for demanding sites.",
+    features: [
+      "Plant-floor LAN and fiber design",
+      "IT / OT network segmentation",
+      "Industrial CCTV and gate monitoring",
+      "Resilient switching for critical zones",
+    ],
+    color: "from-brand-700 to-brand-400",
+  },
+  {
+    icon: Router,
+    title: "Switching, Routing & SD-WAN",
+    description:
+      "Enterprise switching, routing and branch connectivity for multi-site business operations.",
+    detailedDesc: "Design and configure routing, switching and WAN architectures that keep offices, branches and remote sites connected. We handle VLANs, routing policies, failover, VPNs, link load balancing and SD-WAN-ready deployments.",
+    features: [
+      "Core and access switch deployment",
+      "Branch VPN and WAN failover",
+      "Routing policy configuration",
+      "Bandwidth and link optimization",
+    ],
+    color: "from-brand-600 to-brand-300",
+  },
+  {
+    icon: MonitorCog,
+    title: "IT Hardware & Workstation Support",
+    description:
+      "Workstation, peripheral, printer and office IT support for stable everyday operations.",
+    detailedDesc: "Support everyday office technology with workstation setup, device configuration, printer and scanner integration, user troubleshooting, asset upkeep and preventive maintenance aligned with your network environment.",
+    features: [
+      "Desktop and laptop setup",
+      "Printer and peripheral integration",
+      "User troubleshooting support",
+      "Asset checks and preventive upkeep",
+    ],
+    color: "from-brand-500 to-brand-200",
   },
   {
     icon: Home,
@@ -210,7 +270,7 @@ export const services: Service[] = [
     color: "from-brand-700 to-brand-500",
   },
   {
-    icon: Cloud,
+    icon: CloudCog,
     title: "Cloud Integration & IT Infrastructure",
     description:
       "Seamless cloud migration, hybrid infrastructure and IT services for modern businesses.",

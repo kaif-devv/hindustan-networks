@@ -5,10 +5,10 @@ export function IndustriesPage() {
   return (
     <>
       <Helmet>
-        <title>Industries | Hindustan Networks</title>
+        <title>Sectors | Hindustan Networks</title>
         <meta
           name="description"
-          content="See how Hindustan Networks delivers tailored networking solutions for corporate, education, healthcare, government, and residential sectors."
+          content="See examples of sectors where Hindustan Networks has delivered network, security, surveillance, and communication infrastructure, with solutions adaptable to many environments."
         />
       </Helmet>
       <Industries />

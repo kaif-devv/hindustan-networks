@@ -8,7 +8,7 @@ export function ServicesPage() {
         <title>Services | Hindustan Networks</title>
         <meta
           name="description"
-          content="Explore enterprise-grade networking services including leased lines, structured cabling, CCTV, WiFi, security, and IT infrastructure."
+          content="Explore enterprise-grade networking services including leased lines, structured cabling, CCTV, WiFi, cybersecurity, manufacturing IT/OT networking, cloud, and IT infrastructure."
         />
       </Helmet>
       <Services />

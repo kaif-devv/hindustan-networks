@@ -100,6 +100,18 @@
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes clientNetworkDash {
+  from { stroke-dashoffset: 360; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes aboutNetworkDash {
+  from { stroke-dashoffset: 420; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes aboutNodePulse {
+  0%, 100% { box-shadow: 0 18px 42px rgba(180,83,9,0.12), 0 0 0 0 rgba(251,140,0,0.16); }
+  50% { box-shadow: 0 22px 52px rgba(180,83,9,0.16), 0 0 0 10px rgba(251,140,0,0); }
+}
 
 @layer utilities {
   /* Surfaces */
@@ -234,6 +246,74 @@
 
   .animate-spin { animation: spin 1s linear infinite; }
   .animate-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+
+  .client-lane-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+
+  .client-circular-lane {
+    scrollbar-width: none;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .client-circular-lane::-webkit-scrollbar {
+    display: none;
+  }
+
+  .client-network-line {
+    stroke: rgba(251, 140, 0, 0.5);
+    stroke-width: 2.25;
+    stroke-linecap: round;
+    stroke-dasharray: 12 18;
+    animation: clientNetworkDash 9s linear infinite;
+  }
+
+  .client-network-line-slow {
+    stroke: rgba(255, 191, 71, 0.7);
+    stroke-width: 3;
+    animation-duration: 13s;
+  }
+
+  .client-network-line-reverse {
+    stroke: rgba(180, 83, 9, 0.32);
+    animation-direction: reverse;
+    animation-duration: 11s;
+  }
+
+  .about-network-line {
+    stroke: rgba(251, 140, 0, 0.42);
+    stroke-width: 2.25;
+    stroke-linecap: round;
+    stroke-dasharray: 14 18;
+    animation: aboutNetworkDash 10s linear infinite;
+  }
+
+  .about-network-line-slow {
+    stroke: rgba(255, 191, 71, 0.7);
+    stroke-width: 3;
+    animation-duration: 14s;
+  }
+
+  .about-network-line-reverse {
+    stroke: rgba(180, 83, 9, 0.28);
+    animation-direction: reverse;
+    animation-duration: 12s;
+  }
+
+  .about-node {
+    animation: aboutNodePulse 3.8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .client-network-line,
+    .about-network-line,
+    .about-node {
+      animation: none;
+    }
+  }
 
   /* Navbar */
   .navbar-bg {

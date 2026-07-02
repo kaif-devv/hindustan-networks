@@ -3,7 +3,7 @@ import { Award, Users, ThumbsUp, CheckCircle, Calendar } from 'lucide-react'
 export const aboutStats = [
   { icon: Calendar, value: '14+', label: 'Years Experience', desc: 'Established 2017 with deep domain expertise' },
   { icon: Users, value: '200+', label: 'Expert Team', desc: 'Certified network & security professionals' },
-  { icon: ThumbsUp, value: '98%', label: 'Customer Satisfaction', desc: 'Trusted by businesses across Telangana' },
+  { icon: ThumbsUp, value: '98%', label: 'Customer Satisfaction', desc: 'Trusted by businesses across sectors' },
   { icon: Award, value: 'ISO', label: 'Quality Assurance', desc: 'Adherence to international quality standards' },
 ]
 

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Network, ArrowRight } from "lucide-react";
+import { Menu, X, Network } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
+  { label: "Sectors", href: "/industries" },
   { label: "Clients", href: "/clients" },
   { label: "Contact", href: "/contact" },
 ];
@@ -99,17 +99,6 @@ export function Navbar() {
               })}
             </div>
 
-            {/* Desktop actions */}
-            <div className="hidden md:flex items-center gap-3 shrink-0">
-              <Link
-                to="/contact"
-                className="btn-brand text-sm px-4 py-2 rounded-full font-semibold"
-              >
-                Get a Quote
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-
             {/* Mobile Toggle */}
             <button
               className="md:hidden p-2 text-body hover:text-brand-600 transition-colors shrink-0"
@@ -164,16 +153,6 @@ export function Navbar() {
                 })}
               </div>
 
-              <div className="mt-3 flex items-center justify-end gap-3 border-t border-card pt-3">
-                <Link
-                  to="/contact"
-                  onClick={handleMobileClose}
-                  className="btn-brand text-sm px-4 py-2 rounded-full font-semibold"
-                >
-                  Get a Quote
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}

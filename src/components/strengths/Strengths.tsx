@@ -58,7 +58,7 @@ export function Strengths() {
           badge="Why Choose Us"
           title="Our"
           highlight="Strengths"
-          subtitle="What makes Hindustan Networks  the preferred partner for businesses across Telangana and beyond."
+          subtitle="What makes Hindustan Networks the preferred partner for businesses that need dependable infrastructure delivery."
         />
 
         <div
