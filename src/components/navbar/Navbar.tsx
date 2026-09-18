@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Network } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useMotionPreferences } from "@/lib/MotionPreferences";
@@ -55,10 +55,14 @@ export function Navbar() {
             )}
           >
             {/* Brand */}
-            <Link to="/" className="flex items-center gap-3 shrink-0">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-600 text-surface-700 shadow-sm">
-                <Network size={18} />
-              </div>
+            <Link to="/" aria-label="Hindustan Networks home" className="flex items-center gap-3 shrink-0">
+              <img
+                src={`${import.meta.env.BASE_URL}hn-mark.svg`}
+                alt=""
+                width={44}
+                height={44}
+                className="h-11 w-11 shrink-0 rounded-xl shadow-sm"
+              />
               <div className="leading-none hidden sm:block">
                 <div className="font-semibold text-sm tracking-tight text-heading">
                   Hindustan Networks
