@@ -41,7 +41,7 @@
 .concept-home .vl-packet { fill: #ed821f; filter: drop-shadow(0 0 4px #f39337); }
 .concept-home .vl-node { fill: #f3a14d; stroke: #a6642d; stroke-width: .7; }
 .concept-home .vl-node-halo { fill: none; stroke: #e78a39; stroke-width: 1; opacity: .35; animation: vl-node-pulse 4s ease-out infinite; }
-.concept-home .vl-a .vl-delivery { padding: 26px 30px; border: 1px solid #73878c2e; border-radius: 24px; background: #fffefa; box-shadow: 0 12px 32px #263b4c0a; }
+.concept-home .vl-a .vl-delivery { padding: 18px 0; }
 .concept-home .vl-a .vl-badge { font-family: ui-monospace, monospace; letter-spacing: .07em; }
 .concept-home .vl-a .vl-primary { border-radius: 5px; background: #ed932f; }
 .concept-home .vl-a .vl-secondary { border-radius: 5px; background: #faf6ea; }
@@ -58,7 +58,6 @@
 .concept-home :is(button, a):focus-visible { outline: 2px solid #dd8b34; outline-offset: 4px; }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .concept-home .vl-composition { gap: 38px; padding-right: 60px; }
-  .concept-home .vl-a .vl-delivery { padding: 24px 26px; }
 }
 @media (max-width: 1023px) {
   .concept-home .vl-composition { grid-template-columns: 1fr; gap: 40px; padding: 42px 32px 48px; max-width: 720px; }
@@ -75,7 +74,7 @@
   .concept-home .vl-body { font-size: 14px; }
   .concept-home .vl-actions { gap: 10px; }
   .concept-home .vl-button { padding-inline: 16px; gap: 8px; font-size: 12px; }
-  .concept-home .vl-a .vl-delivery { padding: 22px 22px; }
+  .concept-home .vl-a .vl-delivery { padding: 8px 0; }
   .concept-home .vl-step { gap: 10px; }
   .concept-home .vl-step-icon { width: 48px; height: 48px; }
   .concept-home .vl-delivery-steps::before { left: 31px; }
