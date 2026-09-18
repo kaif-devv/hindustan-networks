@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
+import { NetworkAmbientBackground } from "@/components/effects/NetworkAmbientBackground";
+import { useMotionPreferences } from "@/lib/MotionPreferences";
+import { sectionMotion } from "@/lib/motion";
 
 interface SectionHeaderProps {
   badge?: string;
@@ -9,6 +12,7 @@ interface SectionHeaderProps {
   subtitle?: string;
   align?: "center" | "left";
   className?: string;
+  ambient?: "header" | "calm" | false;
 }
 
 export function SectionHeader({
@@ -18,31 +22,35 @@ export function SectionHeader({
   subtitle,
   align = "center",
   className,
+  ambient = "header",
 }: SectionHeaderProps) {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const { reduced } = useMotionPreferences();
+  const variants = sectionMotion(reduced);
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.35 }}
+      variants={variants.container}
+      initial="hidden"
+      animate={inView || reduced ? "visible" : "hidden"}
       className={cn(
-        "mb-12 lg:mb-16",
+        "section-heading mb-10 lg:mb-14",
         align === "center" && "text-center",
         className,
       )}
     >
+      {ambient && <NetworkAmbientBackground variant={ambient} />}
       {badge && (
-        <div className={cn("badge mb-4", align === "center" && "mx-auto")}>
+        <motion.div variants={variants.item} className={cn("badge mb-4", align === "center" && "mx-auto")}>
           <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
           {badge}
-        </div>
+        </motion.div>
       )}
-      <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-heading tracking-tight leading-tight mb-4">
+      <motion.h2 variants={variants.item} className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-heading tracking-tight leading-tight mb-4">
         {title}{" "}
         {highlight && <span className="gradient-text">{highlight}</span>}
-      </h2>
+      </motion.h2>
       {align === "center" && (
         <div className="flex justify-center mb-4">
           <div className="divider-brand" />
@@ -52,14 +60,14 @@ export function SectionHeader({
         <div className="divider-brand mb-4" />
       ) : null}
       {subtitle && (
-        <p
+        <motion.p variants={variants.item}
           className={cn(
             "text-base lg:text-lg text-body leading-relaxed",
             align === "center" && "max-w-2xl mx-auto",
           )}
         >
           {subtitle}
-        </p>
+        </motion.p>
       )}
     </motion.div>
   );

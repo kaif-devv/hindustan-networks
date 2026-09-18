@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Network } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useMotionPreferences } from "@/lib/MotionPreferences";
+import { subtleSpring } from "@/lib/motion";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -16,6 +18,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { reduced } = useMotionPreferences();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -34,9 +37,9 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -64, opacity: 0 }}
+        initial={reduced ? false : { y: -64, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: reduced ? 0 : 0.3, ease: "easeOut" }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
           scrolled ? "pt-3 sm:pt-4" : "bg-transparent",
@@ -81,19 +84,20 @@ export function Navbar() {
                     className={cn(
                       "group relative flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors",
                       isActive
-                        ? "bg-white text-black shadow-sm"
+                        ? "text-black"
                         : "text-black hover:text-black",
                     )}
                   >
+                    {isActive && <motion.span aria-hidden="true" layoutId="active-navigation-pill" className="absolute inset-0 rounded-full bg-white shadow-sm" transition={reduced ? { duration: 0 } : subtleSpring} />}
                     <span
                       className={cn(
-                        "h-1.5 w-1.5 rounded-full transition-colors",
+                        "relative h-1.5 w-1.5 rounded-full transition-colors",
                         isActive
                           ? "bg-brand-500"
                           : "bg-surface-300 group-hover:bg-brand-400",
                       )}
                     />
-                    {link.label}
+                    <span className="relative">{link.label}</span>
                   </NavLink>
                 );
               })}
@@ -101,9 +105,11 @@ export function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden p-2 text-body hover:text-brand-600 transition-colors shrink-0"
+              className="lg:hidden p-2 text-body hover:text-brand-600 transition-colors shrink-0"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -115,11 +121,12 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={reduced ? false : { opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18 }}
-            className="fixed top-[76px] left-0 right-0 z-40 px-4 md:hidden"
+            transition={{ duration: reduced ? 0 : 0.18 }}
+            id="mobile-navigation"
+            className="fixed top-[76px] left-0 right-0 z-40 px-4 lg:hidden"
           >
             <div className="rounded-[1.4rem] border border-card bg-white/95 p-3 shadow-[0_16px_40px_rgba(251,140,0,0.12)] backdrop-blur-xl">
               <div className="grid gap-2">
@@ -135,16 +142,17 @@ export function Navbar() {
                       to={link.href}
                       onClick={handleMobileClose}
                       className={cn(
-                        "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                        "relative flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
                         isActive
-                          ? "bg-brand-50 text-black"
+                          ? "text-black"
                           : "text-black hover:bg-brand-50 hover:text-black",
                       )}
                     >
-                      <span>{link.label}</span>
+                      {isActive && <motion.span aria-hidden="true" layoutId="active-mobile-navigation-pill" className="absolute inset-0 rounded-xl bg-brand-50" transition={reduced ? { duration: 0 } : subtleSpring} />}
+                      <span className="relative">{link.label}</span>
                       <span
                         className={cn(
-                          "h-2 w-2 rounded-full transition-colors",
+                          "relative h-2 w-2 rounded-full transition-colors",
                           isActive ? "bg-brand-500" : "bg-surface-300",
                         )}
                       />

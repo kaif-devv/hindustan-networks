@@ -1,6 +1,7 @@
 ﻿import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { MotionPreferencesProvider, useMotionPreferences } from "@/lib/MotionPreferences";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/footer/Footer";
@@ -14,25 +15,27 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 
 function ScrollToTop() {
   const location = useLocation();
+  const { reduced } = useMotionPreferences();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [location.pathname]);
+    window.scrollTo({ top: 0, behavior: reduced ? "instant" : "smooth" });
+  }, [location.pathname, reduced]);
 
   return null;
 }
 
 function AnimatedRoutes() {
   const location = useLocation();
+  const { reduced } = useMotionPreferences();
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={location.pathname}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -18 }}
-        transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+        initial={reduced ? false : { opacity: 0, y: 10, filter: "blur(3px)" }}
+        animate={{ opacity: 1, y: 0, filter: "none" }}
+        exit={reduced ? { opacity: 0 } : { opacity: 0, y: -6, filter: "blur(2px)" }}
+        transition={{ duration: reduced ? 0 : 0.38, ease: [0.22, 1, 0.36, 1] }}
         className="route-stage"
       >
         <Routes location={location}>
@@ -52,16 +55,20 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
-        <div className="app-shell min-h-screen">
-          <ScrollToTop />
-          <Navbar />
-          <main className="pt-28 lg:pt-32">
-            <AnimatedRoutes />
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
+      <MotionConfig reducedMotion="user">
+        <MotionPreferencesProvider>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <div className="app-shell min-h-screen">
+              <ScrollToTop />
+              <Navbar />
+              <main className="pt-28 lg:pt-32">
+                <AnimatedRoutes />
+              </main>
+              <Footer />
+            </div>
+          </BrowserRouter>
+        </MotionPreferencesProvider>
+      </MotionConfig>
     </HelmetProvider>
   );
 }

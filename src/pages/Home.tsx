@@ -1,7 +1,15 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
+import { useSearchParams } from "react-router-dom";
 import { Hero } from "@/components/hero/Hero";
 
+const VisualLab = lazy(() => import("@/visual-lab/VisualLab"));
+
 export function Home() {
+  const [searchParams] = useSearchParams();
+  const concept = searchParams.get("concept");
+  const showVisualLab = concept === "a" || concept === "a1" || concept === "a2" || concept === "b" || concept === "c";
+
   return (
     <>
       <Helmet>
@@ -25,7 +33,13 @@ export function Home() {
       </Helmet>
 
       <main>
-        <Hero />
+        {showVisualLab ? (
+          <Suspense fallback={<div style={{ minHeight: 680 }} aria-busy="true" />}>
+            <VisualLab concept={concept} />
+          </Suspense>
+        ) : (
+          <Hero />
+        )}
       </main>
     </>
   );

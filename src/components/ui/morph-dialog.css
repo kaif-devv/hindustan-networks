@@ -1,0 +1,38 @@
+.morph-dialog-layer { position: fixed; inset: 0; z-index: 100; }
+.morph-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(20 40 60 / 38%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.morph-dialog-positioner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  overscroll-behavior: contain;
+}
+.morph-dialog-panel {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #c2b39d transparent;
+  background: #fffefa;
+  border: 1px solid rgb(20 40 60 / 12%);
+  box-shadow: 0 24px 80px rgb(20 40 60 / 18%);
+  outline: none;
+}
+@media (max-width: 639px) {
+  .morph-dialog-backdrop { backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+  .morph-dialog-panel { max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .morph-dialog-backdrop { backdrop-filter: none; -webkit-backdrop-filter: none; }
+}

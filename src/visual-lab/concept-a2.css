@@ -1,0 +1,132 @@
+/* A2 only. Extra specificity keeps A1/B/C intact regardless of CSS import order. */
+.visual-lab .vl-a.vl-a2 {
+  --vl-ink: #172d3e;
+  --vl-muted: #536575;
+  background: #faf7ef;
+  border-color: #536b7824;
+  box-shadow: inset 0 1px 0 #fffdf6, inset 0 -1px 0 #fffdf6;
+}
+.visual-lab .vl-a.vl-a2::before { display: none; }
+.visual-lab .vl-a2 .a2-lighting {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 78% 45%, #edac6133, transparent 52%),
+    radial-gradient(ellipse at 40% 36%, #fffefa 12%, #fffefa00 60%),
+    linear-gradient(105deg, #6d7c830a, transparent 18%, transparent 83%, #465c6a0c);
+}
+.visual-lab .vl-a2 .a2-lighting::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 83% 64%, #ffce952b, transparent 44%);
+  animation: a2-light-breathe 23s ease-in-out infinite alternate;
+}
+.visual-lab .vl-a2 .a2-network {
+  position: absolute;
+  inset: -12px;
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, transparent 8%, #00000015 28%, #000000cc 49%, #000 72%);
+}
+.visual-lab .vl-a2 .a2-network-layer { position: absolute; inset: 0; }
+.visual-lab .vl-a2 .a2-network-layer > svg { position: absolute; width: 100%; height: 100%; overflow: visible; }
+.visual-lab .vl-a2 .a2-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#697f8c0c 1px, transparent 1px), linear-gradient(90deg, #697f8c0c 1px, transparent 1px), radial-gradient(#63798522 .7px, transparent .9px);
+  background-size: 40px 40px, 40px 40px, 10px 10px;
+  mask-image: radial-gradient(ellipse at 73% 43%, #000 12%, transparent 74%);
+}
+.visual-lab .vl-a2 .a2-far-drift { animation: a2-far-drift 27s ease-in-out infinite alternate; }
+.visual-lab .vl-a2 .a2-middle-drift { animation: a2-middle-drift 19s ease-in-out infinite alternate; }
+.visual-lab .vl-a2 .a2-far-topology { stroke: #69808b; stroke-width: .7; opacity: .16; fill: none; }
+.visual-lab .vl-a2 .a2-far-topology rect { fill: #76888c; stroke: none; }
+.visual-lab .vl-a2 .a2-survey-line { stroke: #526f8124; fill: none; stroke-width: .6; }
+.visual-lab .vl-a2 .a2-connection { stroke: #6b838d; stroke-width: 1; fill: none; opacity: .37; animation: a2-path-arrival 1.6s ease-out .9s both; }
+.visual-lab .vl-a2 .a2-connection-secondary { stroke-dasharray: 3 7; stroke-width: .8; opacity: .24; }
+.visual-lab .vl-a2 .a2-route-activation { fill: none; stroke: #df8b3b; stroke-width: 1.5; opacity: 0; animation: a2-route-active 24s ease-in-out infinite; }
+.visual-lab .vl-a2 .a2-node-entrance { animation: a2-nodes-arrive .8s ease-out .1s both; }
+.visual-lab .vl-a2 .a2-node { fill: #f0e4cb; stroke: #7b929b; stroke-width: 1; }
+.visual-lab .vl-a2 .a2-node-hub { fill: #203e50; stroke: #d59654; stroke-width: 1.4; }
+.visual-lab .vl-a2 .a2-node-ring { stroke: #9a967c; stroke-width: .8; fill: #fffaf333; opacity: .5; }
+.visual-lab .vl-a2 .a2-node-ring-outer { stroke: #ca985d; stroke-dasharray: 2 4; opacity: .32; }
+.visual-lab .vl-a2 .a2-node-pulse { fill: none; stroke: #e0974b; stroke-width: .9; opacity: 0; animation: a2-node-pulse 8s ease-out infinite; }
+.visual-lab .vl-a2 .a2-split-pulse { animation-duration: 24s; animation-delay: 15.8s; }
+.visual-lab .vl-a2 .a2-network-labels { fill: #637b86; font: 8px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 1.2px; }
+.visual-lab .vl-a2 .a2-foreground-route { fill: none; stroke: #9b805c; stroke-width: 1; opacity: .27; }
+.visual-lab .vl-a2 .a2-foreground-establish { fill: none; stroke: #b77f42; stroke-width: 1.2; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; animation: a2-establish 24s ease-in-out 19.7s infinite; }
+.visual-lab .vl-a2 .a2-sync-pulse { animation-duration: 24s; animation-delay: 21.4s; }
+
+/* Retain A's typography placement and hierarchy, with more deliberate weight. */
+.visual-lab .vl-a.vl-a2 .vl-title { letter-spacing: -.071em; font-weight: 650; text-shadow: 0 1px 1px #ffffff99; }
+.visual-lab .vl-a.vl-a2 .vl-title .vl-title-accent { color: #bd6826; font-weight: 500; position: relative; width: fit-content; }
+.visual-lab .vl-a2 .vl-title-accent::after { content: ""; position: absolute; bottom: -8px; right: 0; width: 70px; height: 2px; background: linear-gradient(90deg, #e2a04c15, #e2a04c99, #e2a04c15); }
+.visual-lab .vl-a.vl-a2 .vl-subtitle { color: #334b5c; font-weight: 500; }
+.visual-lab .vl-a.vl-a2 .vl-body { color: #536575; text-shadow: 0 1px 0 #fffaf4; }
+.visual-lab .vl-a.vl-a2 .vl-badge { position: relative; padding: 6px 10px; margin-top: -6px; margin-left: -10px; margin-bottom: 21px; border: 1px solid #ad947534; border-radius: 4px; background: #fffdf580; overflow: hidden; color: #7e613d; box-shadow: inset 0 1px 0 #ffffffab; }
+.visual-lab .vl-a2 .vl-badge > span { background: #c98b3f; box-shadow: 0 0 0 3px #d69a4320; animation: a2-status-pulse 7.8s ease-out 1.1s infinite; }
+.visual-lab .vl-a2 .vl-badge::after { content: ""; position: absolute; inset: -20% -40%; background: linear-gradient(110deg, transparent 42%, #ffffff85 50%, transparent 58%); transform: translateX(-100%); animation: a2-badge-sheen 14s ease-in-out 1.2s infinite; pointer-events: none; }
+
+/* Same delivery panel and card positions; animation layers never affect layout. */
+.visual-lab .vl-a.vl-a2 .vl-delivery { background: linear-gradient(130deg, #fffdf4d9, #f3efdfb8); border-color: #6075823d; box-shadow: inset 0 1px 0 #ffffffd9, 0 2px 4px #283f4f05, 0 20px 42px -16px #283f4f29, 0 40px 90px -48px #bf8c4145; }
+.visual-lab .vl-a.vl-a2 .vl-delivery::before, .visual-lab .vl-a.vl-a2 .vl-delivery::after { width: 22px; height: 22px; border-color: #b78650b3; }
+.visual-lab .vl-a2 .a2-pipeline-spine { position: absolute; left: 39px; top: 48px; bottom: 48px; width: 1px; background: #ac8c604d; pointer-events: none; }
+.visual-lab .vl-a2 .a2-stage { position: relative; perspective: 900px; }
+.visual-lab .vl-a.vl-a2 .a2-stage-card { background: linear-gradient(110deg, #fffefbef, #fdf9eeec); border-color: #526a7a21; box-shadow: inset 0 1px 0 #fff, 0 2px 4px #243b4e03, 0 7px 16px -6px #243b4e12; }
+.visual-lab .vl-a2 .a2-stage-activation { position: absolute; inset: -1px; border: 1px solid #d5954fbd; border-radius: inherit; background: radial-gradient(ellipse at 9% 50%, #edaa4b1c, transparent 70%); box-shadow: inset 0 0 16px #efb96612, 0 0 0 2px #e9b36108; opacity: 0; pointer-events: none; animation: a2-stage-active 7.2s ease-in-out var(--stage-delay) infinite; }
+.visual-lab .vl-a2 .a2-card-spotlight { position: absolute; inset: 0; border-radius: inherit; opacity: 0; pointer-events: none; transition: opacity .22s; }
+.visual-lab .vl-a.vl-a2 .vl-step-icon { color: #e4bd85; border-color: #324c5d; background: linear-gradient(135deg, #2c4656, #173446); box-shadow: inset 0 1px 0 #ffffff12, 0 4px 9px #18334518; animation: a2-icon-active 7.2s ease-in-out var(--stage-delay) infinite; }
+.visual-lab .vl-a2 .a2-icon-pulse { position: absolute; inset: -1px; border: 1px solid #d99f52; border-radius: inherit; opacity: 0; pointer-events: none; animation: a2-icon-radiate 7.2s ease-out var(--stage-delay) infinite; }
+.visual-lab .vl-a2 .a2-stage-ticks { position: absolute; right: 9px; top: 11px; display: flex; align-items: flex-end; gap: 2px; height: 6px; pointer-events: none; }
+.visual-lab .vl-a2 .a2-stage-ticks i { height: 2px; width: 2px; background: #82918c44; animation: a2-tick-active 7.2s ease-in-out var(--stage-delay) infinite; }
+.visual-lab .vl-a2 .a2-stage-ticks i:nth-child(2) { height: 4px; animation-delay: calc(var(--stage-delay) + .08s); }
+.visual-lab .vl-a2 .a2-stage-ticks i:nth-child(3) { height: 6px; animation-delay: calc(var(--stage-delay) + .16s); }
+.visual-lab .vl-a2 .a2-handoff { position: absolute; top: 100%; left: 38px; width: 3px; height: 17px; pointer-events: none; overflow: hidden; }
+.visual-lab .vl-a2 .a2-handoff > span { position: absolute; inset: 0; background: linear-gradient(transparent, #cb8a42, #edba6d, transparent); opacity: 0; animation: a2-handoff-light 7.2s ease-in-out var(--handoff-delay) infinite; }
+.visual-lab .vl-a2 .a2-handoff > i { position: absolute; top: -6px; width: 3px; height: 6px; border-radius: 2px; background: #efb56b; box-shadow: 0 0 4px #efb56b80; opacity: 0; animation: a2-handoff-travel 7.2s ease-in-out var(--handoff-delay) infinite; }
+
+/* Framer handles lift/press, CSS handles the light and border response. */
+.visual-lab .vl-a.vl-a2 .vl-button { transition: box-shadow .22s, background-color .22s, border-color .22s; }
+.visual-lab .vl-a.vl-a2 .vl-primary { background: linear-gradient(110deg, #f2a24c, #ed9438); border-color: #cf862c99; box-shadow: inset 0 1px 0 #ffedc570, 0 6px 16px #b6782720; }
+.visual-lab .vl-a.vl-a2 .vl-secondary { background: #fffaf294; border-color: #66798240; }
+.visual-lab .vl-a2 .vl-primary::after { content: ""; position: absolute; inset: -50% -40%; background: linear-gradient(110deg, transparent 43%, #fff5db70 50%, transparent 57%); transform: translateX(-100%); transition: transform .6s; pointer-events: none; }
+
+@keyframes a2-light-breathe { from { opacity: .55; } to { opacity: 1; } }
+@keyframes a2-far-drift { from { transform: translate(-2px, 1px); } to { transform: translate(2px, -2px); } }
+@keyframes a2-middle-drift { from { transform: translate(0, 1px); } to { transform: translate(2px, -1px); } }
+@keyframes a2-nodes-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes a2-path-arrival { 0% { stroke: #c9975c; opacity: .1; } 40% { stroke: #c9975c; opacity: .65; } 100% { stroke: #6b838d; opacity: .37; } }
+@keyframes a2-route-active { 0% { opacity: 0; } 2%, 10% { opacity: .52; } 14%, 100% { opacity: 0; } }
+@keyframes a2-node-pulse { 0% { transform: scale(.75); opacity: 0; } 2% { opacity: .5; } 15% { transform: scale(2.6); opacity: 0; } 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes a2-establish { 0% { stroke-dashoffset: 100; opacity: 0; } 2% { opacity: .7; } 7% { stroke-dashoffset: 0; opacity: .7; } 12%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes a2-stage-active { 0% { opacity: 0; } 3%, 10% { opacity: 1; } 17%, 100% { opacity: 0; } }
+@keyframes a2-icon-active { 0%, 18%, 100% { color: #e4bd85; border-color: #324c5d; box-shadow: inset 0 1px 0 #ffffff12, 0 4px 9px #18334518; } 4%, 10% { color: #ffe6b3; border-color: #d4a361; box-shadow: inset 0 0 16px #ebae4825, 0 0 14px #eab36638; } }
+@keyframes a2-icon-radiate { 0%, 5% { transform: scale(1); opacity: 0; } 6% { opacity: .45; } 17% { transform: scale(1.25); opacity: 0; } 100% { transform: scale(1.25); opacity: 0; } }
+@keyframes a2-tick-active { 0%, 18%, 100% { background: #82918c44; } 4%, 11% { background: #c7934b; } }
+@keyframes a2-handoff-light { 0% { opacity: 0; } 1%, 6% { opacity: .85; } 9%, 100% { opacity: 0; } }
+@keyframes a2-handoff-travel { 0% { transform: translateY(0); opacity: 0; } 1% { opacity: 1; } 8% { transform: translateY(23px); opacity: 0; } 100% { transform: translateY(23px); opacity: 0; } }
+@keyframes a2-status-pulse { 0%, 20%, 100% { box-shadow: 0 0 0 3px #d69a4320; } 8% { box-shadow: 0 0 0 5px #d69a4308, 0 0 6px #d69a4338; } }
+@keyframes a2-badge-sheen { 0% { transform: translateX(-100%); } 10%, 100% { transform: translateX(100%); } }
+
+@media (hover: hover) and (pointer: fine) {
+  .visual-lab .vl-a2 .a2-stage-card:hover .a2-card-spotlight { opacity: 1; }
+  .visual-lab .vl-a.vl-a2 .a2-stage-card:hover { border-color: #c38d4b80; box-shadow: inset 0 1px 0 #fff, 0 10px 24px -8px #29445526; }
+  .visual-lab .vl-a.vl-a2 .vl-button:hover, .visual-lab .vl-a.vl-a2 .vl-button:active { transform: none; }
+  .visual-lab .vl-a.vl-a2 .vl-primary:hover { box-shadow: inset 0 1px 0 #ffedc570, 0 9px 23px #c5863738; }
+  .visual-lab .vl-a2 .vl-primary:hover::after { transform: translateX(100%); }
+  .visual-lab .vl-a.vl-a2 .vl-secondary:hover { border-color: #cb914b99; background: #fff1d9b3; }
+}
+@media (max-width: 639px) {
+  .visual-lab .vl-a2 .a2-network { mask-image: linear-gradient(180deg, #00000030, #00000099); }
+  .visual-lab .vl-a2 .a2-layer-back, .visual-lab .vl-a2 .a2-layer-front { display: none; }
+  .visual-lab .vl-a2 .a2-network-labels { display: none; }
+  .visual-lab .vl-a2 .a2-pipeline-spine { left: 35px; }
+  .visual-lab .vl-a2 .a2-handoff { left: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visual-lab .vl-a.vl-a2 *, .visual-lab .vl-a.vl-a2 *::before, .visual-lab .vl-a.vl-a2 *::after { animation: none !important; transition: none !important; }
+  .visual-lab .vl-a2 .a2-node-pulse, .visual-lab .vl-a2 .a2-handoff > i, .visual-lab .vl-a2 .a2-foreground-establish { display: none; }
+  .visual-lab .vl-a.vl-a2 .a2-stage-card:hover .a2-card-spotlight { opacity: 0; }
+  .visual-lab .vl-a.vl-a2 .vl-button:hover svg { transform: none; }
+}
