@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Network,
   Phone,
   Mail,
   Linkedin,
@@ -45,9 +44,13 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14 lg:py-18">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-500 shadow-sm">
-                <Network size={20} className="text-surface-700" />
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}hn-mark.svg`}
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10 shrink-0 rounded-xl shadow-sm"
+              />
               <div>
                 <div className="text-heading font-bold text-sm tracking-wide leading-none">
                   Hindustan Networks
