@@ -1,4 +1,4 @@
-/* Exact original Concept A declarations, scoped independently from the lab. */
+/* Home hero styles, scoped independently from the visual lab. */
 .concept-home {
   --vl-ink: #14283c;
   --vl-muted: #5f6e79;
@@ -6,7 +6,7 @@
   color: var(--vl-ink);
 }
 .concept-home .vl-hero { position: relative; overflow: hidden; isolation: isolate; min-height: 645px; }
-.concept-home .vl-composition { max-width: 1280px; margin: 0 auto; padding: 58px 32px 62px; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 76px; position: relative; z-index: 2; }
+.concept-home .vl-composition { max-width: 1280px; margin: 0 auto; padding: 58px 32px 62px; display: grid; grid-template-columns: 1.05fr 1.1fr; align-items: center; gap: 56px; position: relative; z-index: 2; }
 .concept-home .vl-background { position: absolute; inset: -18px; pointer-events: none; z-index: 0; }
 .concept-home .vl-pointer-light { position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0; transition: opacity .4s; }
 .concept-home .vl-copy { position: relative; min-width: 0; }
@@ -26,59 +26,39 @@
 .concept-home .vl-copy-rule span { height: 1px; background: #14283c22; width: 50px; }
 .concept-home .vl-copy-rule i { width: 4px; height: 4px; background: var(--vl-orange); transform: rotate(45deg); }
 .concept-home .vl-delivery { position: relative; min-width: 0; }
-.concept-home .vl-delivery-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 23px; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: #7c858d; }
-.concept-home .vl-delivery-label i { width: 5px; height: 5px; border-radius: 50%; background: #ed8c3e; box-shadow: 0 0 0 4px #ed8c3e12; }
-.concept-home .vl-delivery-steps { position: relative; display: flex; flex-direction: column; gap: 17px; }
-.concept-home .vl-step { display: flex; position: relative; align-items: center; gap: 17px; padding: 20px; border: 1px solid #14283c16; border-radius: 12px; min-height: 102px; background: #fffefaed; box-shadow: inset 0 1px 0 #ffffffd0, 0 4px 16px #14283c05; transition: border-color .25s, box-shadow .25s, background-color .25s; }
-.concept-home .vl-step-icon { flex-shrink: 0; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 10px; background: #fff1df; border: 1px solid #d88f351f; color: #b66321; position: relative; z-index: 2; }
-.concept-home .vl-step-title { display: flex; align-items: baseline; gap: 9px; margin-bottom: 6px; }
-.concept-home .vl-step-title span { font-family: ui-monospace, monospace; font-size: 10px; color: #aa7348; }
-.concept-home .vl-step-title h2 { font-size: 17px; font-weight: 500; line-height: 1.15; margin: 0; color: var(--vl-ink); letter-spacing: -.025em; }
-.concept-home .vl-step-copy { min-width: 0; }
-.concept-home .vl-step-copy p { margin: 0; color: var(--vl-muted); font-size: 12px; line-height: 1.65; }
-.concept-home .vl-step-arrow { flex-shrink: 0; margin-left: auto; color: #ab8d6e; opacity: 0; transition: opacity .25s, transform .25s; }
-.concept-home .vl-pathway { position: absolute; top: 48px; bottom: 48px; left: 44px; width: 1px; background: #dc8d4445; z-index: 1; pointer-events: none; }
-.concept-home .vl-pathway > span { position: absolute; top: 0; left: -1px; width: 3px; height: 20px; border-radius: 4px; background: linear-gradient(transparent, #f78c21, #ffe1a4); box-shadow: 0 0 9px #f5994270; animation: vl-path-travel 5.4s linear infinite; }
+.concept-home .vl-delivery-label { margin-bottom: 12px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #965a2e; }
+.concept-home .vl-delivery-steps { position: relative; display: flex; flex-direction: column; gap: 2px; }
+.concept-home .vl-delivery-steps::before { content: ""; position: absolute; top: 38px; bottom: 38px; left: 33px; width: 2px; border-radius: 2px; background: linear-gradient(#e8a154, #ed8c3e 50%, #e8a154); }
+.concept-home .vl-step { position: relative; display: flex; align-items: center; gap: 14px; min-height: 82px; padding: 12px 8px; border-radius: 14px; transition: background .2s, box-shadow .2s; }
+.concept-home .vl-step-icon { flex-shrink: 0; width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #e9a65b5c; border-radius: 14px; background: linear-gradient(145deg, #28465a, #1d3547); color: #ffbd79; box-shadow: inset 0 1px 0 #ffffff1c, 0 2px 7px #152d3e12; }
+.concept-home .vl-step-copy { min-width: 0; flex: 1; }
+.concept-home .vl-step-copy h2 { font-size: 17px; font-weight: 650; line-height: 1.2; margin: 0 0 5px; color: var(--vl-ink); letter-spacing: -.025em; }
+.concept-home .vl-step-copy p { margin: 0; color: #78858c; font-size: 13px; line-height: 1.45; }
 .concept-home .vl-a { background: #faf6ea; border-block: 1px solid #c9bda342; }
-.concept-home .vl-a::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#687d8b0b 1px, transparent 1px), linear-gradient(90deg, #687d8b0b 1px, transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(90deg, transparent, #000 60%); pointer-events: none; }
-.concept-home .vl-a .vl-background { opacity: .85; }
+.concept-home .vl-a .vl-background { opacity: .27; }
 .concept-home .vl-topology { width: 100%; height: 100%; }
 .concept-home .vl-network-line { stroke: #778881; stroke-width: 1; fill: none; opacity: .32; }
 .concept-home .vl-packet { fill: #ed821f; filter: drop-shadow(0 0 4px #f39337); }
 .concept-home .vl-node { fill: #f3a14d; stroke: #a6642d; stroke-width: .7; }
 .concept-home .vl-node-halo { fill: none; stroke: #e78a39; stroke-width: 1; opacity: .35; animation: vl-node-pulse 4s ease-out infinite; }
-.concept-home .vl-a .vl-delivery { padding: 24px; border: 1px solid #73878c36; border-radius: 6px; background: #f8f6edd9; box-shadow: 0 14px 44px #263b4c0b; }
-.concept-home .vl-a .vl-delivery::before, .concept-home .vl-a .vl-delivery::after { content: ""; position: absolute; width: 18px; height: 18px; border-color: #d58a44; border-style: solid; pointer-events: none; }
-.concept-home .vl-a .vl-delivery::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-.concept-home .vl-a .vl-delivery::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-.concept-home .vl-a .vl-step { border-radius: 5px; padding: 17px 15px; min-height: 96px; background: #fffefaef; }
-.concept-home .vl-a .vl-step-icon { border-radius: 5px; background: #163043; color: #ffbb73; border-color: #163043; animation: vl-icon-signal 5.4s ease-in-out infinite; animation-delay: calc(var(--step) * 1.35s); }
-.concept-home .vl-a .vl-pathway { left: 39px; }
-.concept-home .vl-a .vl-delivery-label { color: #536a74; font-family: ui-monospace, monospace; margin-bottom: 18px; letter-spacing: .055em; }
-.concept-home .vl-a .vl-step-title span { color: #aa6932; }
-.concept-home .vl-a .vl-step-arrow { display: none; }
+.concept-home .vl-a .vl-delivery { padding: 26px 30px; border: 1px solid #73878c2e; border-radius: 24px; background: #fffefa; box-shadow: 0 12px 32px #263b4c0a; }
 .concept-home .vl-a .vl-badge { font-family: ui-monospace, monospace; letter-spacing: .07em; }
 .concept-home .vl-a .vl-primary { border-radius: 5px; background: #ed932f; }
 .concept-home .vl-a .vl-secondary { border-radius: 5px; background: #faf6ea; }
 
-@keyframes vl-path-travel { 0% { top: 0; opacity: 0; } 8%, 90% { opacity: 1; } 100% { top: calc(100% - 20px); opacity: 0; } }
 @keyframes vl-node-pulse { 0%, 100% { transform: scale(.8); opacity: .15; } 40% { transform: scale(1.4); opacity: .5; } }
-@keyframes vl-icon-signal { 0%, 22%, 100% { box-shadow: 0 0 0 0 #f8a65300; } 10% { box-shadow: 0 0 0 5px #f8a65320, 0 0 20px #f8a65335; } }
 
 @media (hover: hover) and (pointer: fine) {
+  .concept-home .vl-step:hover { background: linear-gradient(100deg, #fff4e7, #fffefa 75%); box-shadow: inset 3px 0 #eb8d35, 0 5px 14px #263b4c0b; }
   .concept-home .vl-hero:hover .vl-pointer-light { opacity: 1; }
   .concept-home .vl-button:hover { transform: translateY(-2px); }
   .concept-home .vl-button:hover svg { transform: translateX(3px); }
   .concept-home .vl-button:active { transform: translateY(0) scale(.98); }
-  .concept-home .vl-step:hover { border-color: #dd9b54a0; box-shadow: inset 0 1px 0 #ffffff50, 0 16px 32px #14283c13; }
-  .concept-home .vl-step:hover .vl-step-arrow { opacity: 1; transform: translateX(3px); }
 }
 .concept-home :is(button, a):focus-visible { outline: 2px solid #dd8b34; outline-offset: 4px; }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .concept-home .vl-composition { gap: 38px; padding-right: 60px; }
-  .concept-home .vl-step { padding: 16px; gap: 12px; }
-  .concept-home .vl-a .vl-delivery { padding: 18px; }
-  .concept-home .vl-step-arrow { display: none; }
+  .concept-home .vl-a .vl-delivery { padding: 24px 26px; }
 }
 @media (max-width: 1023px) {
   .concept-home .vl-composition { grid-template-columns: 1fr; gap: 40px; padding: 42px 32px 48px; max-width: 720px; }
@@ -95,15 +75,14 @@
   .concept-home .vl-body { font-size: 14px; }
   .concept-home .vl-actions { gap: 10px; }
   .concept-home .vl-button { padding-inline: 16px; gap: 8px; font-size: 12px; }
-  .concept-home .vl-a .vl-delivery { padding: 15px; }
-  .concept-home .vl-step { padding: 15px; gap: 12px; }
-  .concept-home .vl-step-icon { width: 40px; height: 40px; }
-  .concept-home .vl-step-arrow { display: none; }
+  .concept-home .vl-a .vl-delivery { padding: 22px 22px; }
+  .concept-home .vl-step { gap: 10px; }
+  .concept-home .vl-step-icon { width: 48px; height: 48px; }
+  .concept-home .vl-delivery-steps::before { left: 31px; }
   .concept-home .vl-delivery-label { font-size: 8px; letter-spacing: .02em; }
 }
 @media (prefers-reduced-motion: reduce) {
   .concept-home *, .concept-home *::before, .concept-home *::after { animation: none !important; transition: none !important; }
   .concept-home .vl-pointer-light { display: none; }
-  .concept-home .vl-pathway > span { display: none; }
-  .concept-home .vl-button:hover, .concept-home .vl-button:active, .concept-home .vl-button:hover svg, .concept-home .vl-step:hover .vl-step-arrow { transform: none; }
+  .concept-home .vl-button:hover, .concept-home .vl-button:active, .concept-home .vl-button:hover svg { transform: none; }
 }

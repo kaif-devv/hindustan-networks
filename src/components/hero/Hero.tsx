@@ -1,13 +1,12 @@
-import { useEffect, type CSSProperties, type PointerEvent } from "react";
+import { useEffect, type PointerEvent } from "react";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, Cable, Headphones, ShieldCheck, Wifi } from "lucide-react";
 import { Link } from "react-router-dom";
-import { premiumSpring, subtleSpring } from "@/lib/motion";
+import { subtleSpring } from "@/lib/motion";
 import { NetworkAmbientBackground } from "@/components/effects/NetworkAmbientBackground";
 import { useMotionPreferences } from "@/lib/MotionPreferences";
 import "./concept-a.css";
 
-// Original approved Concept A. Keep desktop composition and motion in sync with the archived prototype.
 const deliveryPath = [
   { icon: Cable, title: "Plan", text: "Site survey, requirements, layout, capacity and security planning." },
   { icon: Wifi, title: "Deploy", text: "Clean installation for networks, Wi-Fi, surveillance and IT systems." },
@@ -71,18 +70,16 @@ export function Hero() {
           <motion.div className="vl-copy-rule" {...entrance(0.48)} aria-hidden="true"><span /><i /><span /></motion.div>
         </div>
         <motion.div className="vl-delivery" {...entrance(0.22)}>
-          <div className="vl-delivery-label"><span>Plan / Deploy / Secure / Support</span><i /></div>
+          <div className="vl-delivery-label">How we work</div>
           <div className="vl-delivery-steps">
-            <div className="vl-pathway" aria-hidden="true"><span /></div>
-            {deliveryPath.map((step, index) => (
-              <motion.div className="vl-step" key={step.title}
-                style={{ "--step": index } as CSSProperties}
-                {...entrance(0.3 + index * 0.08)}
-                whileHover={reduceMotion ? undefined : { y: -3, transition: premiumSpring }}>
+            {deliveryPath.map((step) => (
+              <div className="vl-step" key={step.title}>
                 <div className="vl-step-icon"><step.icon size={23} strokeWidth={1.7} /></div>
-                <div className="vl-step-copy"><div className="vl-step-title"><span>{String(index + 1).padStart(2, "0")}</span><h2>{step.title}</h2></div><p>{step.text}</p></div>
-                <ArrowRight className="vl-step-arrow" size={17} aria-hidden="true" />
-              </motion.div>
+                <div className="vl-step-copy">
+                  <h2>{step.title}</h2>
+                  <p>{step.text}</p>
+                </div>
+              </div>
             ))}
           </div>
         </motion.div>
