@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
-  Cable,
+  Cctv,
   CheckCircle2,
   CloudCog,
   Network,
-  ShieldCheck,
+  PhoneCall,
   Wifi,
 } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -18,9 +18,9 @@ import { useMotionPreferences, useReveal } from "@/lib/MotionPreferences";
 const networkNodes = [
   { icon: Network, label: "LAN", className: "left-[12%] top-[20%]" },
   { icon: Wifi, label: "WiFi", className: "right-[14%] top-[16%]" },
-  { icon: ShieldCheck, label: "Security", className: "left-[20%] bottom-[18%]" },
+  { icon: PhoneCall, label: "Intercom", className: "left-[20%] bottom-[18%]" },
   { icon: CloudCog, label: "Cloud", className: "right-[18%] bottom-[21%]" },
-  { icon: Cable, label: "Fiber", className: "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" },
+  { icon: Cctv, label: "CCTV", className: "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" },
 ];
 
 function StatCard({

@@ -51,7 +51,7 @@ export function Navbar() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={cn(
-              "relative flex items-center justify-between gap-4 rounded-[1.4rem] border px-4 py-3 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.06)]",
+              "relative flex items-center justify-between gap-4 rounded-[1.4rem] border px-4 py-3 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.06)] transition-colors duration-200 motion-reduce:transition-none",
               scrolled
                 ? "navbar-bg border-[var(--navbar-border)]"
                 : "bg-white/80 border-white/80",
@@ -78,7 +78,10 @@ export function Navbar() {
             </Link>
 
             {/* Desktop switcher */}
-            <div className="hidden lg:flex items-center gap-1 rounded-full border border-[#F6C98B] bg-[#FFF4E8] px-2 py-1">
+            <div className={cn(
+              "hidden lg:flex items-center gap-1 rounded-full border border-[#F6C98B] px-2 py-1 transition-colors duration-200 motion-reduce:transition-none",
+              scrolled ? "bg-white" : "bg-[#FFF4E8]",
+            )}>
               {navLinks.map((link) => {
                 const isActive =
                   location.pathname === link.href ||
@@ -96,7 +99,17 @@ export function Navbar() {
                         : "text-black hover:text-black",
                     )}
                   >
-                    {isActive && <motion.span aria-hidden="true" layoutId="active-navigation-pill" className="absolute inset-0 rounded-full bg-white shadow-sm" transition={reduced ? { duration: 0 } : subtleSpring} />}
+                    {isActive && <motion.span
+                      aria-hidden="true"
+                      layoutId="active-navigation-pill"
+                      className={cn(
+                        "absolute inset-0 rounded-full border bg-white transition-[background-color,border-color,box-shadow] duration-200 motion-reduce:transition-none",
+                        scrolled
+                          ? "border-[rgba(80,80,80,0.45)] shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+                          : "border-transparent shadow-sm",
+                      )}
+                      transition={reduced ? { duration: 0 } : subtleSpring}
+                    />}
                     <span
                       className={cn(
                         "relative h-1.5 w-1.5 rounded-full transition-colors",
