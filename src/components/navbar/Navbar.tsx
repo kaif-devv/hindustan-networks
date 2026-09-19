@@ -61,7 +61,7 @@ export function Navbar() {
                 alt=""
                 width={44}
                 height={44}
-                className="h-11 w-11 shrink-0 rounded-xl shadow-sm"
+                className="h-11 w-11 shrink-0"
               />
               <div className="leading-none hidden sm:block">
                 <div className="font-semibold text-sm tracking-tight text-heading">

@@ -49,7 +49,7 @@ export function Footer() {
                 alt=""
                 width={40}
                 height={40}
-                className="h-10 w-10 shrink-0 rounded-xl shadow-sm"
+                className="h-10 w-10 shrink-0"
               />
               <div>
                 <div className="text-heading font-bold text-sm tracking-wide leading-none">

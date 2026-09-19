@@ -1,5 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#172B3A"/>
-  <path d="M28 17H35L47 35V17H54V47H47L28 19V17Z" fill="#FB8C00"/>
-  <path d="M11 17H18V29H28V17H35V47H28V36H18V47H11V17Z" fill="#FFFFFF"/>
+<svg width="600" height="534" viewBox="0 0 600 534" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top-left orange block -->
+  <rect x="14" y="14" width="223" height="253" fill="#F79300"/>
+
+  <!-- Bottom-left orange block -->
+  <rect x="14" y="300" width="223" height="221" fill="#F79300"/>
+
+  <!-- Center dark triangle -->
+  <path d="M267 14 L267 521 L490 521 Z" fill="#1E2526"/>
+
+  <!-- Right orange triangle -->
+  <path d="M303 14 L522 14 L522 520 Z" fill="#F79300"/>
+
+  <!-- Registered trademark circle -->
+  <circle cx="566" cy="44" r="29" fill="none" stroke="#111111" stroke-width="4"/>
+
+  <!-- Registered trademark R -->
+  <text x="566" y="62" text-anchor="middle" font-family="Times New Roman, Times, serif" font-size="50" fill="#111111">R</text>
 </svg>
