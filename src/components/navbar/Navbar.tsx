@@ -5,6 +5,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useMotionPreferences } from "@/lib/MotionPreferences";
 import { subtleSpring } from "@/lib/motion";
+import "@fontsource/tinos/latin-700.css";
+import "@fontsource/didact-gothic/latin-400.css";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -64,11 +66,12 @@ export function Navbar() {
                 className="h-11 w-11 shrink-0"
               />
               <div className="leading-none hidden sm:block">
-                <div className="font-semibold text-sm tracking-tight text-heading">
-                  Hindustan Networks
+                <div className="font-brand-roman font-[700] text-sm tracking-tight text-heading">
+                  Hindustan{" "}
+                  <span className="font-brand-gothic font-normal tracking-normal">Networks</span>
                 </div>
-                <div className="text-xs text-muted">
-                  Network & communication systems
+                <div className="font-brand-gothic font-normal text-xs text-muted">
+                  Network | Security | Communication | IT Infrastructure | Services | Solutions | Support
                 </div>
               </div>
             </Link>
