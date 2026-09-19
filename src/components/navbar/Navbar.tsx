@@ -5,8 +5,6 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useMotionPreferences } from "@/lib/MotionPreferences";
 import { subtleSpring } from "@/lib/motion";
-import "@fontsource/tinos/latin-700.css";
-import "@fontsource/didact-gothic/latin-400.css";
 
 const navLinks = [
   { label: "About", href: "/about" },

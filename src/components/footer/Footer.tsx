@@ -52,8 +52,9 @@ export function Footer() {
                 className="h-10 w-10 shrink-0"
               />
               <div>
-                <div className="text-heading font-bold text-sm tracking-wide leading-none">
-                  Hindustan Networks
+                <div className="text-heading font-brand-roman font-[700] text-sm tracking-tight leading-none">
+                  Hindustan{" "}
+                  <span className="font-brand-gothic font-normal tracking-normal">Networks</span>
                 </div>
               </div>
             </div>

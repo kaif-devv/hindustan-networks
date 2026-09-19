@@ -56,8 +56,8 @@ export function Hero() {
         <div className="vl-copy">
           <motion.div className="vl-badge" {...entrance(0.02)}><span />Trusted Network Infrastructure Partner</motion.div>
           <h1 className="vl-title">
-            <motion.span {...entrance(0.1)}>Hindustan</motion.span>
-            <motion.span className="vl-title-accent" {...entrance(0.19)}>Networks</motion.span>
+            <motion.span className="font-brand-roman font-[700] tracking-tight" {...entrance(0.1)}>Hindustan</motion.span>
+            <motion.span className="vl-title-accent font-brand-gothic font-normal tracking-normal" {...entrance(0.19)}>Networks</motion.span>
           </h1>
           <motion.p className="vl-subtitle" {...entrance(0.25)}>Comprehensive Network &amp; Communication Solutions</motion.p>
           <motion.p className="vl-body" {...entrance(0.32)}>
