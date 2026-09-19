@@ -37,12 +37,39 @@ const socials = [
   { icon: Instagram, href: "#", label: "Instagram" },
 ];
 
+function FooterLinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+  return (
+    <nav aria-label={`Footer ${title}`} className="min-w-0">
+      <h4 className="text-sm font-semibold text-heading mb-5 leading-5 uppercase tracking-wider">
+        {title}
+      </h4>
+      <ul className="grid gap-2.5">
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link
+              to={link.href}
+              className="group relative block min-h-5 pr-5 text-sm leading-5 text-body hover:text-brand-700 transition-colors"
+            >
+              {link.label}
+              <ArrowRight
+                size={12}
+                aria-hidden="true"
+                className="absolute right-0 top-1 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 -translate-x-1 group-hover:translate-x-0 group-focus-visible:translate-x-0 transition-all text-brand-500"
+              />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="bg-white/95 text-body border-t border-card backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14 lg:py-18">
-          <div className="lg:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
               <img
                 src={`${import.meta.env.BASE_URL}hn-mark.svg`}
@@ -77,52 +104,13 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-heading mb-5 uppercase tracking-wider">
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="group flex items-center gap-1.5 text-sm text-body hover:text-brand-700 transition-colors"
-                  >
-                    <ArrowRight
-                      size={12}
-                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-brand-500"
-                    />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:col-span-2">
+            <FooterLinkColumn title="Quick Links" links={quickLinks} />
+            <FooterLinkColumn title="Services" links={serviceLinks.map((label) => ({ label, href: "/services" }))} />
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-heading mb-5 uppercase tracking-wider">
-              Services
-            </h4>
-            <ul className="space-y-2.5">
-              {serviceLinks.map((service) => (
-                <li key={service}>
-                  <Link
-                    to="/services"
-                    className="group flex items-center gap-1.5 text-sm text-body hover:text-brand-700 transition-colors"
-                  >
-                    <ArrowRight
-                      size={12}
-                      className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-brand-500"
-                    />
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-heading mb-5 uppercase tracking-wider">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h4 className="text-sm font-semibold text-heading mb-5 leading-5 uppercase tracking-wider">
               Contact
             </h4>
             <div className="space-y-4">

@@ -1,0 +1,23 @@
+/* Cover the full viewport width, including the gap above the floating bar. */
+.navbar-scroll-blur {
+  position: absolute;
+  inset: 0 0 -16px;
+  pointer-events: none;
+  background: rgba(255, 253, 247, 0.55);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 16px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 16px), transparent 100%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.navbar-scroll-blur[data-visible="true"] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-scroll-blur {
+    transition: none;
+  }
+}

@@ -5,6 +5,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useMotionPreferences } from "@/lib/MotionPreferences";
 import { subtleSpring } from "@/lib/motion";
+import "./navbar.css";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -22,6 +23,7 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -45,12 +47,13 @@ export function Navbar() {
           scrolled ? "pt-3 sm:pt-4" : "bg-transparent",
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="navbar-scroll-blur" data-visible={scrolled} aria-hidden="true" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={cn(
               "relative flex items-center justify-between gap-4 rounded-[1.4rem] border px-4 py-3 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.06)]",
               scrolled
-                ? "navbar-bg border-card bg-white/90"
+                ? "navbar-bg border-[var(--navbar-border)]"
                 : "bg-white/80 border-white/80",
             )}
           >
@@ -75,7 +78,7 @@ export function Navbar() {
             </Link>
 
             {/* Desktop switcher */}
-            <div className="hidden lg:flex items-center gap-1 rounded-full border border-card bg-brand-50 px-2 py-1">
+            <div className="hidden lg:flex items-center gap-1 rounded-full border border-[#F6C98B] bg-[#FFF4E8] px-2 py-1">
               {navLinks.map((link) => {
                 const isActive =
                   location.pathname === link.href ||
@@ -120,8 +123,6 @@ export function Navbar() {
             </button>
           </div>
         </div>
-      </motion.nav>
-
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
@@ -131,7 +132,7 @@ export function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: reduced ? 0 : 0.18 }}
             id="mobile-navigation"
-            className="fixed top-[76px] left-0 right-0 z-40 px-4 lg:hidden"
+            className="absolute top-full left-0 right-0 z-20 mt-2 px-4 lg:hidden"
           >
             <div className="rounded-[1.4rem] border border-card bg-white/95 p-3 shadow-[0_16px_40px_rgba(251,140,0,0.12)] backdrop-blur-xl">
               <div className="grid gap-2">
@@ -170,6 +171,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+      </motion.nav>
     </>
   );
 }
