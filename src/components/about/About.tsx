@@ -153,7 +153,7 @@ export function About() {
           badge="About Us"
           title="Building Digital"
           highlight="Infrastructure"
-          subtitle="Hindustan Networks is a provider of end-to-end network and communication infrastructure solutions for businesses, institutions, and public sector teams."
+          subtitle="Network, communication, security, surveillance, wireless and IT infrastructure for enterprises, institutions, commercial establishments and residential projects."
         />
 
         <div className="mb-16 grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
@@ -172,6 +172,12 @@ export function About() {
               access control, cybersecurity, cloud and managed support. Our work
               is designed for teams that need their sites to stay connected,
               secure and ready to scale.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-body">
+              Every solution begins with your requirements, operating environment,
+              budget and future plans. We design, implement, integrate and maintain
+              systems that suit the intended application, from a workplace upgrade
+              to a residential or campus-wide deployment.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">

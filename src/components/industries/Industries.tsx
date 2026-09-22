@@ -13,6 +13,7 @@ import {
   Hotel,
   School,
   Truck,
+  ServerCog,
 } from "lucide-react";
 import { SectorCard } from "./SectorCard";
 import { SectorsHeader } from "./SectorsHeader";
@@ -34,7 +35,7 @@ const industries = [
   {
     icon: GraduationCap,
     title: "Educational Institutions",
-    desc: "Campus fiber, smart classrooms, WiFi, e-learning infrastructure and digital security.",
+    desc: "Campus fiber, WiFi, CCTV, biometric attendance, access control and communication systems.",
     color: "from-brand-700 to-brand-500",
   },
   {
@@ -58,7 +59,7 @@ const industries = [
   {
     icon: ShoppingBag,
     title: "Shopping & Commercial Spaces",
-    desc: "Multi-tenant WiFi, common-area CCTV, managed switching and centralized monitoring.",
+    desc: "Multi-tenant networking, WiFi, CCTV, access control, communication and building automation.",
     color: "from-brand-700 to-brand-400",
   },
   {
@@ -88,7 +89,7 @@ const industries = [
   {
     icon: Home,
     title: "Residential Projects",
-    desc: "Smart home automation, fiber internet, intercom and apartment surveillance systems.",
+    desc: "WiFi, CCTV, video door phones, intercom, access control and automation for homes and communities.",
     color: "from-brand-500 to-brand-200",
   },
   {
@@ -102,6 +103,12 @@ const industries = [
     title: "Security-Sensitive Facilities",
     desc: "Layered surveillance, controlled access, firewalls and monitoring for restricted environments.",
     color: "from-brand-800 to-brand-500",
+  },
+  {
+    icon: ServerCog,
+    title: "Data Centers & Server Rooms",
+    desc: "Server infrastructure, rack organization, fiber links, structured cabling and coordinated power and cooling requirements.",
+    color: "from-brand-700 to-brand-500",
   },
 ];
 

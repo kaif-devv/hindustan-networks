@@ -2,15 +2,17 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useMotionPreferences, useReveal } from "@/lib/MotionPreferences";
 import { useSpotlight } from "@/components/effects/SpotlightCard";
 import { subtleSpring } from "@/lib/motion";
+import { services } from "@/data/services";
+import { enquirySchema, formatEnquiryMessage, type Enquiry } from "@/lib/enquiry";
 
 // ─── EmailJS config ───────────────────────────────────────────────────────────
 // 1. Sign up free at https://www.emailjs.com
@@ -23,17 +25,15 @@ const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
 // ─────────────────────────────────────────────────────────────────────────────
 
-const schema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.email("Please enter a valid email"),
-  phone: z.string().optional(),
-  subject: z.string().min(3, "Subject is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type FormData = z.infer<typeof schema>;
-
 const contactInfo = [
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 9849533913",
+    href: "tel:+919849533913",
+    color: "bg-brand-50 border-brand-100",
+    iconColor: "text-brand-700",
+  },
   {
     icon: Mail,
     label: "Email",
@@ -63,21 +63,24 @@ export function Contact() {
   const { reduced } = useMotionPreferences();
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+  const requestedService = searchParams.get("service") || "";
+  const selectedService = services.some((service) => service.title === requestedService) ? requestedService : "";
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<Enquiry>({
+    resolver: zodResolver(enquirySchema),
+    defaultValues: { service: selectedService, subject: selectedService ? `Enquiry: ${selectedService}` : "" },
+  });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: Enquiry) => {
     setError(null);
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      // Keys not configured — show success anyway in development
-      setSubmitted(true);
-      reset();
-      setTimeout(() => setSubmitted(false), 6000);
+      setError("Online enquiries are currently unavailable. Please call +91 9849533913 or email info@hindustannetworks.com. Your details have been kept in the form.");
       return;
     }
     try {
@@ -89,7 +92,7 @@ export function Contact() {
           from_email: data.email,
           phone: data.phone || "Not provided",
           subject: data.subject,
-          message: data.message,
+          message: formatEnquiryMessage(data),
         },
         EMAILJS_PUBLIC_KEY,
       );
@@ -109,7 +112,7 @@ export function Contact() {
           badge="Contact Us"
           title="Get In"
           highlight="Touch"
-          subtitle="Have a project in mind? Let's discuss how we can build a reliable network infrastructure for your business."
+          subtitle="Planning a new project, upgrade, security installation or maintenance contract? Tell us about your site and requirements so we can recommend a practical next step."
         />
 
         <div ref={ref} className="grid lg:grid-cols-5 gap-8 lg:gap-12">
@@ -129,8 +132,10 @@ export function Contact() {
 
             {contactInfo.map((item, i) => <ContactInfoCard key={item.label} item={item} index={i} active={inView} />)}
 
-            {/* Map placeholder */}
-            
+            <div className="network-surface rounded-xl border border-card p-5">
+              <h3 className="text-base font-semibold text-heading mb-2">What happens next?</h3>
+              <p className="text-sm text-body leading-relaxed">We review your requirement, discuss the existing systems and site conditions, then recommend the scope and whether a site survey is needed. Share your location, priorities and any planned timeline to help us prepare.</p>
+            </div>
           </motion.div>
 
           {/* Contact Form */}
@@ -157,14 +162,14 @@ export function Contact() {
                     Message Sent!
                   </h3>
                   <p className="text-muted text-sm max-w-xs">
-                    Thank you for reaching out. Our team will contact you within
-                    24 hours.
+                    Thank you for reaching out. Our team will review your
+                    requirements and get in touch using the details you provided.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                   <h3 className="text-xl font-bold text-heading mb-6">
-                    Send Us a Message
+                    Request a Consultation
                   </h3>
 
                   {error && (
@@ -220,13 +225,33 @@ export function Contact() {
                     </div>
                   </div>
 
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="contact-company" className={labelClass}>Company / Organization</label>
+                      <input id="contact-company" autoComplete="organization" {...register("company")} className={inputClass} />
+                    </div>
+                    <div>
+                      <label htmlFor="contact-location" className={labelClass}>Project Location</label>
+                      <input id="contact-location" {...register("location")} placeholder="City or site location" className={inputClass} />
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="contact-message" className={labelClass}>Message *</label>
+                    <label htmlFor="contact-service" className={labelClass}>Service Required</label>
+                    <select id="contact-service" {...register("service")} className={inputClass}>
+                      <option value="">Select a service (optional)</option>
+                      {services.map((service) => <option key={service.title} value={service.title}>{service.title}</option>)}
+                      <option value="Other / Multiple services">Other / Multiple services</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-message" className={labelClass}>Project Details *</label>
                     <textarea
                       id="contact-message" aria-invalid={!!errors.message}
                       {...register("message")}
                       rows={5}
-                      placeholder=""
+                      placeholder="Tell us about your site, existing systems, priorities and preferred timeline."
                       className={`${inputClass} resize-none`}
                     />
                     {errors.message && (
@@ -250,7 +275,7 @@ export function Contact() {
                       </>
                     ) : (
                       <>
-                        Send Message
+                        Request a Consultation
                         <Send
                           size={16}
                           className="group-hover:translate-x-1 transition-transform"

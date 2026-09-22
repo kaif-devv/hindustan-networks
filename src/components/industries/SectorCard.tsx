@@ -35,10 +35,7 @@ export function SectorCard({ sector, index }: Props) {
       <InteractiveCard>
         <article className="sectors-card interactive-card-surface" aria-labelledby={titleId}>
           <div className="sectors-card-accent" aria-hidden="true"><span /></div>
-          <div className="sectors-card-meta" aria-hidden="true">
-            <span className="sectors-card-number">{String(index + 1).padStart(2, "0")}</span>
-            <span className="sectors-card-node" />
-          </div>
+          <span className="sectors-card-node" aria-hidden="true" />
           <div className="sectors-icon-shift">
             <div className="sectors-icon"><sector.icon size={28} strokeWidth={1.65} aria-hidden="true" /></div>
           </div>

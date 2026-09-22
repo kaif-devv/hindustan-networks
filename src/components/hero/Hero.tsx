@@ -61,7 +61,7 @@ export function Hero() {
           </h1>
           <motion.p className="vl-subtitle" {...entrance(0.25)}>Comprehensive Network &amp; Communication Solutions</motion.p>
           <motion.p className="vl-body" {...entrance(0.32)}>
-            We design, install, secure, and maintain dependable technology infrastructure for offices, factories, campuses, retail spaces, healthcare facilities, and growing enterprises.
+            We design, install, integrate, and maintain network, communication, security and IT infrastructure for businesses, institutions and residential projects, with performance, scalability and long-term value in mind.
           </motion.p>
           <motion.div className="vl-actions" {...entrance(0.4)}>
             <Link className="vl-button vl-primary" to="/services">Explore Services<ArrowRight size={18} /></Link>

@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import { Hero } from "@/components/hero/Hero";
+import { HomeOverview } from "@/components/home/HomeOverview";
 
 const VisualLab = lazy(() => import("@/visual-lab/VisualLab"));
 
@@ -18,7 +19,7 @@ export function Home() {
         </title>
         <meta
           name="description"
-          content="Hindustan Networks delivers end-to-end network and communication infrastructure solutions including LAN, fiber, CCTV, WiFi, servers, cybersecurity and more."
+          content="Network, communication, CCTV, security, wireless, automation and IT infrastructure solutions for businesses, institutions and residential projects."
         />
         <meta
           name="keywords"
@@ -32,15 +33,18 @@ export function Home() {
         <link rel="canonical" href="https://hindustannetworks.com" />
       </Helmet>
 
-      <main>
+      <div>
         {showVisualLab ? (
           <Suspense fallback={<div style={{ minHeight: 680 }} aria-busy="true" />}>
             <VisualLab concept={concept} />
           </Suspense>
         ) : (
-          <Hero />
+          <>
+            <Hero />
+            <HomeOverview />
+          </>
         )}
-      </main>
+      </div>
     </>
   );
 }

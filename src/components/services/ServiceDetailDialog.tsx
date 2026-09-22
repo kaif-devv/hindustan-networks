@@ -1,4 +1,5 @@
 import type { RefObject } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import type { Service } from "@/data/services";
@@ -61,6 +62,10 @@ export function ServiceDetailDialog({ service, layoutId, returnFocusRef, onClose
             </li>
           ))}
         </ul>
+        <div className="mt-7 border-t border-card pt-5">
+          <p className="text-sm text-body leading-relaxed mb-4">Tell us about your site, existing systems and priorities. We can help define the scope, installation requirements and support plan.</p>
+          <Link to={`/contact?service=${encodeURIComponent(service.title)}`} className="btn-brand" onClick={onClose}>Request a consultation</Link>
+        </div>
       </motion.div>
     </MorphDialog>
   );

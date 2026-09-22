@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Contact } from "@/components/contact/Contact";
+import { InfrastructureFaq } from "@/components/contact/InfrastructureFaq";
 
 export function ContactPage() {
   return (
@@ -8,10 +9,11 @@ export function ContactPage() {
         <title>Contact | Hindustan Networks</title>
         <meta
           name="description"
-          content="Contact Hindustan Networks for enterprise LAN, WiFi, fiber, CCTV, access control, and infrastructure solutions in Telangana and beyond."
+          content="Request a consultation for networking, security, communication, residential automation or AMC support. Find answers to common infrastructure questions."
         />
       </Helmet>
       <Contact />
+      <InfrastructureFaq />
     </>
   );
 }
