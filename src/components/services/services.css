@@ -38,13 +38,13 @@
   height: 2px;
   overflow: hidden;
   border-radius: 2px;
-  background: linear-gradient(90deg, #c9844080, #e4b46e55 65%, #e4b46e08);
+  background: linear-gradient(90deg, #fb8c0080, #fb8c0055 65%, #fb8c0008);
   transition: opacity .24s;
 }
 .services-card-accent > span {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, #e9a94a 45%, #fff3da 55%, transparent);
+  background: linear-gradient(90deg, transparent, #fb8c00 45%, #fb8c0066 55%, transparent);
   transform: translateX(-110%);
 }
 .services-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
@@ -62,7 +62,7 @@
 }
 .services-card-icon-shift { display: inline-flex; transition: transform .24s; }
 .services-icon-glyph { display: flex; transition: color .24s; }
-.services-card-signal { color: #b6844a; opacity: .3; transition: opacity .24s; }
+.services-card-signal { color: #fb8c00; opacity: .3; transition: opacity .24s; }
 .services-card-signal path { stroke: currentColor; stroke-width: 1; stroke-dasharray: 40; stroke-dashoffset: 40; transition: stroke-dashoffset .6s; }
 .services-card-signal circle { fill: currentColor; }
 .services-card-title { margin-bottom: 10px; }
@@ -85,7 +85,7 @@
 .services-card-surface:has(:focus-visible) .services-card-signal { opacity: .8; }
 .services-card-surface:has(:focus-visible) .services-card-signal path { stroke-dashoffset: 0; }
 .services-detail-header { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 28px 28px 0; }
-.services-detail-accent { position: absolute; height: 2px; top: 0; left: 20px; right: 20px; background: linear-gradient(90deg, #cf8d3b, #e5b56e70, transparent); }
+.services-detail-accent { position: absolute; height: 2px; top: 0; left: 20px; right: 20px; background: linear-gradient(90deg, #fb8c00, #fb8c0070, transparent); }
 .services-detail-badge { margin-right: auto; }
 .services-detail-close { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #14283c12; border-radius: 50%; background: #fff; color: #526572; cursor: pointer; transition: color .2s, background-color .2s; }
 .services-detail-close:hover { background: #fff; color: #14283c; }

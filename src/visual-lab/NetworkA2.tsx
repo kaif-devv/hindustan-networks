@@ -47,9 +47,9 @@ function Packet({ route, start, travel, gradientId }: (typeof a2PacketSchedule)[
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes={`0;${0.15 / cycle};${(travel - 0.2) / cycle};${travel / cycle};1`} dur={`${cycle}s`} begin={`${start}s`} repeatCount="indefinite" />
       <g>
         <path d="M-12 0H0" stroke={`url(#${gradientId})`} strokeWidth="2" strokeLinecap="round" />
-        <circle r="7" fill="#f6a042" opacity=".12" />
-        <circle r="4" fill="#f6a042" opacity=".28" />
-        <circle r="2.1" fill="#fff4d5" stroke="#e99337" strokeWidth=".8" />
+        <circle r="7" fill="#fb8c00" opacity=".12" />
+        <circle r="4" fill="#fb8c00" opacity=".28" />
+        <circle r="2.1" fill="#fff" stroke="#fb8c00" strokeWidth=".8" />
       </g>
     </g>
   );
@@ -77,7 +77,7 @@ export function NetworkA2({ x, y, reduced }: { x: MotionValue<number>; y: Motion
       </motion.div>
       <motion.div className="a2-network-layer a2-layer-middle" style={{ x: middleX, y: middleY }}>
         <svg viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" className="a2-middle-drift">
-          <defs><linearGradient id={`${id}-tail`}><stop stopColor="#ed8a2a" stopOpacity="0" /><stop offset="1" stopColor="#f7ac5a" stopOpacity=".9" /></linearGradient></defs>
+          <defs><linearGradient id={`${id}-tail`}><stop stopColor="#fb8c00" stopOpacity="0" /><stop offset="1" stopColor="#fb8c00" stopOpacity=".9" /></linearGradient></defs>
           {routes.slice(0, -1).map((path, index) => <path key={path} d={path} className={`a2-connection${index === 8 || index === 11 ? " a2-connection-secondary" : ""}`} />)}
           {!reduced && a2PacketSchedule.map(({ route, start, travel }, index) => <g key={index}>
             <path d={routes[route]} className="a2-route-activation" style={{ animationDelay: `${start}s` }} />
@@ -88,7 +88,7 @@ export function NetworkA2({ x, y, reduced }: { x: MotionValue<number>; y: Motion
               {r >= 4 && <circle cx={cx} cy={cy} r={r + 6} className="a2-node-ring" />}
               {r === 6 && <circle cx={cx} cy={cy} r={r + 12} className="a2-node-ring a2-node-ring-outer" />}
               <circle cx={cx} cy={cy} r={r} className={r >= 5 ? "a2-node a2-node-hub" : "a2-node"} />
-              {r >= 5 && <circle cx={cx} cy={cy} r="1.8" fill="#fff7e3" />}
+              {r >= 5 && <circle cx={cx} cy={cy} r="1.8" fill="#fff" />}
             </g>)}
           </g>
           {[{ index: 10, delay: 1.3, duration: 8.6 }, { index: 6, delay: 4.8, duration: 7.8 }, { index: 8, delay: 7.1, duration: 6.9 }].map(({ index, delay, duration }) => (

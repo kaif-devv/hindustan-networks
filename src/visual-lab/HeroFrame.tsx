@@ -115,7 +115,7 @@ export function SignalStreams() {
     <>
       <div className="vl-energy-light" />
       <svg className="vl-streams" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <defs><linearGradient id={gradientId} x1="0" y1="1" x2="1" y2="0"><stop stopColor="#fb8c00" stopOpacity="0" /><stop offset="0.5" stopColor="#fb8c00" stopOpacity="0.7" /><stop offset="1" stopColor="#ffd9a0" stopOpacity="0.2" /></linearGradient></defs>
+        <defs><linearGradient id={gradientId} x1="0" y1="1" x2="1" y2="0"><stop stopColor="#fb8c00" stopOpacity="0" /><stop offset="0.5" stopColor="#fb8c00" stopOpacity="0.7" /><stop offset="1" stopColor="#fb8c00" stopOpacity="0.2" /></linearGradient></defs>
         {Array.from({ length: 9 }, (_, index) => {
           const path = `M${200 + index * 37} 760 C${710 + index * 12} ${630 - index * 13}, ${510 + index * 20} ${100 + index * 15}, ${1540} ${20 + index * 60}`;
           return <g key={index}>

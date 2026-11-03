@@ -4,18 +4,18 @@
 
 @theme {
   /* Warm brand palette */
-  --color-brand-50: #fff8e1;
-  --color-brand-100: #ffefc2;
-  --color-brand-200: #ffe39a;
-  --color-brand-300: #ffd166;
-  --color-brand-400: #ffbf47;
-  --color-brand-500: #ffa726;
+  --color-brand-50: #fb8c00;
+  --color-brand-100: #fb8c00;
+  --color-brand-200: #fb8c00;
+  --color-brand-300: #fb8c00;
+  --color-brand-400: #fb8c00;
+  --color-brand-500: #fb8c00;
   --color-brand-600: #fb8c00;
   --color-brand-700: #ef6c00;
   --color-brand-800: #db5f00;
   --color-brand-900: #b45309;
 
-  --color-accent-400: #ffbf47;
+  --color-accent-400: #fb8c00;
   --color-accent-500: #fb8c00;
 
   --color-surface-50: #f9fafb;
@@ -67,9 +67,9 @@
     --text-muted: #9ca3af;
     --brand: #fb8c00;
     --brand-hover: #ef6c00;
-    --accent: #ffbf47;
+    --accent: #fb8c00;
     --navbar-bg: #ffffff;
-    --navbar-border: #F6C98B;
+    --navbar-border: #fb8c00;
     --section-alt: #ffffff;
   }
 
@@ -175,7 +175,7 @@
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(115deg, #fb8c00, #ffbf47);
+    background: #fb8c00;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -244,7 +244,7 @@
   .divider-brand {
     width: 3rem;
     height: 3px;
-    background: linear-gradient(90deg, #fb8c00, #ffbf47);
+    background: #fb8c00;
     border-radius: 2px;
   }
 

@@ -17,10 +17,10 @@
 .visual-lab .vl-lab-label { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; flex-wrap: wrap; }
 .visual-lab .vl-lab-label > span { width: 6px; height: 6px; background: var(--vl-orange); border-radius: 50%; }
 .visual-lab .vl-lab-label small { flex-basis: 100%; margin-left: 15px; font-size: 10px; font-weight: 400; color: #77818a; letter-spacing: .06em; }
-.visual-lab .vl-switcher { display: flex; gap: 4px; padding: 4px; border: 1px solid #14283c12; border-radius: 12px; background: #f0eee8; }
+.visual-lab .vl-switcher { display: flex; gap: 4px; padding: 4px; border: 1px solid #14283c12; border-radius: 12px; background: #fff; }
 .visual-lab .vl-switcher button { display: flex; align-items: center; gap: 8px; border: 0; padding: 9px 13px; border-radius: 8px; color: #586672; cursor: pointer; font-size: 12px; background: transparent; }
 .visual-lab .vl-switcher button b { font-size: 10px; font-weight: 600; }
-.visual-lab .vl-switcher button[aria-pressed="true"] { background: #fffefa; color: #14283c; box-shadow: 0 2px 7px #14283c12; }
+.visual-lab .vl-switcher button[aria-pressed="true"] { background: #fff; color: #14283c; box-shadow: 0 2px 7px #14283c12; }
 .visual-lab .vl-switcher button[aria-pressed="true"] b { color: #bc560e; }
 .visual-lab .vl-original { font-size: 12px; color: #586672; white-space: nowrap; text-decoration: none; }
 .visual-lab .vl-hero { position: relative; overflow: hidden; isolation: isolate; min-height: 645px; }
@@ -38,7 +38,7 @@
 .visual-lab .vl-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .visual-lab .vl-button { position: relative; display: inline-flex; justify-content: center; align-items: center; gap: 15px; min-height: 50px; padding: 0 23px; border-radius: 8px; font-size: 13px; font-weight: 500; text-decoration: none; overflow: hidden; transition: transform .22s, box-shadow .22s, background-color .22s, border-color .22s; }
 .visual-lab .vl-button svg { transition: transform .22s; }
-.visual-lab .vl-primary { color: #172a3a; background: #f79738; border: 1px solid #e7842f; box-shadow: inset 0 1px 0 #ffffff55, 0 6px 15px #c5741420; }
+.visual-lab .vl-primary { color: #172a3a; background: #fb8c00; border: 1px solid #fb8c00; box-shadow: 0 6px 15px #fb8c0020; }
 .visual-lab .vl-secondary { color: var(--vl-ink); border: 1px solid #14283c28; background: #ffffff50; }
 .visual-lab .vl-copy-rule { margin-top: 32px; display: flex; width: 135px; align-items: center; gap: 8px; }
 .visual-lab .vl-copy-rule span { height: 1px; background: #14283c22; width: 50px; }
@@ -47,8 +47,8 @@
 .visual-lab .vl-delivery-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 23px; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: #7c858d; }
 .visual-lab .vl-delivery-label i { width: 5px; height: 5px; border-radius: 50%; background: #ed8c3e; box-shadow: 0 0 0 4px #ed8c3e12; }
 .visual-lab .vl-delivery-steps { position: relative; display: flex; flex-direction: column; gap: 17px; }
-.visual-lab .vl-step { display: flex; position: relative; align-items: center; gap: 17px; padding: 20px; border: 1px solid #14283c16; border-radius: 12px; min-height: 102px; background: #fffefaed; box-shadow: inset 0 1px 0 #ffffffd0, 0 4px 16px #14283c05; transition: border-color .25s, box-shadow .25s, background-color .25s; }
-.visual-lab .vl-step-icon { flex-shrink: 0; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 10px; background: #fff1df; border: 1px solid #d88f351f; color: #b66321; position: relative; z-index: 2; }
+.visual-lab .vl-step { display: flex; position: relative; align-items: center; gap: 17px; padding: 20px; border: 1px solid #14283c16; border-radius: 12px; min-height: 102px; background: #fff; box-shadow: 0 4px 16px #14283c0a; transition: border-color .25s, box-shadow .25s, background-color .25s; }
+.visual-lab .vl-step-icon { flex-shrink: 0; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 10px; background: #fff; border: 1px solid #fb8c001f; color: #fb8c00; position: relative; z-index: 2; }
 .visual-lab .vl-step-title { display: flex; align-items: baseline; gap: 9px; margin-bottom: 6px; }
 .visual-lab .vl-step-title span { font-family: ui-monospace, monospace; font-size: 10px; color: #aa7348; }
 .visual-lab .vl-step-title h2 { font-size: 17px; font-weight: 500; line-height: 1.15; margin: 0; color: var(--vl-ink); letter-spacing: -.025em; }
@@ -56,11 +56,11 @@
 .visual-lab .vl-step-copy p { margin: 0; color: var(--vl-muted); font-size: 12px; line-height: 1.65; }
 .visual-lab .vl-step-arrow { flex-shrink: 0; margin-left: auto; color: #ab8d6e; opacity: 0; transition: opacity .25s, transform .25s; }
 .visual-lab .vl-pathway { position: absolute; top: 48px; bottom: 48px; left: 44px; width: 1px; background: #dc8d4445; z-index: 1; pointer-events: none; }
-.visual-lab .vl-pathway > span { position: absolute; top: 0; left: -1px; width: 3px; height: 20px; border-radius: 4px; background: linear-gradient(transparent, #f78c21, #ffe1a4); box-shadow: 0 0 9px #f5994270; animation: vl-path-travel 5.4s linear infinite; }
+.visual-lab .vl-pathway > span { position: absolute; top: 0; left: -1px; width: 3px; height: 20px; border-radius: 4px; background: linear-gradient(transparent, #fb8c00, #fb8c00); box-shadow: 0 0 9px #fb8c0070; animation: vl-path-travel 5.4s linear infinite; }
 .visual-lab .vl-caption { max-width: 1280px; padding: 20px 32px 28px; margin: auto; display: flex; justify-content: space-between; gap: 16px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #7e827e; }
 
 /* A: precise, visible topology and connected, instrument-like delivery rows. */
-.visual-lab .vl-a { background: #faf6ea; border-block: 1px solid #c9bda342; }
+.visual-lab .vl-a { background: #fff; border-block: 1px solid #c9bda342; }
 .visual-lab .vl-a::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#687d8b0b 1px, transparent 1px), linear-gradient(90deg, #687d8b0b 1px, transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(90deg, transparent, #000 60%); pointer-events: none; }
 .visual-lab .vl-a .vl-background { opacity: .85; }
 .visual-lab .vl-topology { width: 100%; height: 100%; }
@@ -68,43 +68,43 @@
 .visual-lab .vl-packet { fill: #ed821f; filter: drop-shadow(0 0 4px #f39337); }
 .visual-lab .vl-node { fill: #f3a14d; stroke: #a6642d; stroke-width: .7; }
 .visual-lab .vl-node-halo { fill: none; stroke: #e78a39; stroke-width: 1; opacity: .35; animation: vl-node-pulse 4s ease-out infinite; }
-.visual-lab .vl-a .vl-delivery { padding: 24px; border: 1px solid #73878c36; border-radius: 6px; background: #f8f6edd9; box-shadow: 0 14px 44px #263b4c0b; }
+.visual-lab .vl-a .vl-delivery { padding: 24px; border: 1px solid #73878c36; border-radius: 6px; background: #fff; box-shadow: 0 14px 44px #263b4c0b; }
 .visual-lab .vl-a .vl-delivery::before, .visual-lab .vl-a .vl-delivery::after { content: ""; position: absolute; width: 18px; height: 18px; border-color: #d58a44; border-style: solid; pointer-events: none; }
 .visual-lab .vl-a .vl-delivery::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
 .visual-lab .vl-a .vl-delivery::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-.visual-lab .vl-a .vl-step { border-radius: 5px; padding: 17px 15px; min-height: 96px; background: #fffefaef; }
+.visual-lab .vl-a .vl-step { border-radius: 5px; padding: 17px 15px; min-height: 96px; background: #fff; }
 .visual-lab .vl-a .vl-step-icon { border-radius: 5px; background: #163043; color: #ffbb73; border-color: #163043; animation: vl-icon-signal 5.4s ease-in-out infinite; animation-delay: calc(var(--step) * 1.35s); }
 .visual-lab .vl-a .vl-pathway { left: 39px; }
 .visual-lab .vl-a .vl-delivery-label { color: #536a74; font-family: ui-monospace, monospace; margin-bottom: 18px; letter-spacing: .055em; }
 .visual-lab .vl-a .vl-step-title span { color: #aa6932; }
 .visual-lab .vl-a .vl-step-arrow { display: none; }
 .visual-lab .vl-a .vl-badge { font-family: ui-monospace, monospace; letter-spacing: .07em; }
-.visual-lab .vl-a .vl-primary { border-radius: 5px; background: #ed932f; }
-.visual-lab .vl-a .vl-secondary { border-radius: 5px; background: #faf6ea; }
+.visual-lab .vl-a .vl-primary { border-radius: 5px; background: #fb8c00; }
+.visual-lab .vl-a .vl-secondary { border-radius: 5px; background: #fff; }
 
 /* B: luminous ivory, sculpted glass planes and an airy stack of surfaces. */
-.visual-lab .vl-b { background: radial-gradient(ellipse at 76% 34%, #fff7e6, transparent 53%), linear-gradient(120deg, #fffefb, #f6f0e4); }
+.visual-lab .vl-b { background: #fff; }
 .visual-lab .vl-b .vl-composition { gap: 94px; padding-block: 64px 70px; }
 .visual-lab .vl-b .vl-title { font-weight: 500; letter-spacing: -.075em; }
 .visual-lab .vl-b .vl-title .vl-title-accent { color: #c87c36; margin-left: 35px; }
-.visual-lab .vl-b .vl-badge { background: #fffefa; border: 1px solid #dacdb952; border-radius: 30px; padding: 9px 12px; font-size: 8px; letter-spacing: .09em; box-shadow: 0 3px 12px #2e352e05; }
+.visual-lab .vl-b .vl-badge { background: #fff; border: 1px solid #fb8c0052; border-radius: 30px; padding: 9px 12px; font-size: 8px; letter-spacing: .09em; box-shadow: 0 3px 12px #2e352e05; }
 .visual-lab .vl-b .vl-subtitle { color: #3b4650; font-weight: 400; }
 .visual-lab .vl-enterprise-light { position: absolute; inset: 0; }
-.visual-lab .vl-light-disc { position: absolute; width: 530px; height: 530px; top: 54px; right: 4%; border-radius: 50%; background: radial-gradient(circle at 36% 26%, #fffdfa, #fae6c7 65%, #dfbd9090); box-shadow: inset 0 1px 2px #fff, 25px 28px 75px #aa723315; }
+.visual-lab .vl-light-disc { position: absolute; width: 530px; height: 530px; top: 54px; right: 4%; border-radius: 50%; background: #fff; box-shadow: 25px 28px 75px #fb8c0015; }
 .visual-lab .vl-glass-plane { position: absolute; right: 9%; top: 125px; width: 430px; height: 420px; border-radius: 34px; border: 1px solid #ffffffa0; background: linear-gradient(130deg, #ffffff50, #ffffff05); box-shadow: 20px 30px 65px #76512b0c; }
 .visual-lab .vl-glass-plane-back { transform: rotate(-12deg); }
 .visual-lab .vl-glass-plane-front { transform: rotate(9deg); right: 5%; top: 90px; }
 .visual-lab .vl-b .vl-delivery { padding: 12px 14px 12px 0; }
 .visual-lab .vl-b .vl-delivery-label { margin-left: 20px; color: #967953; letter-spacing: .09em; }
-.visual-lab .vl-b .vl-step { border-radius: 18px; padding: 21px; background: linear-gradient(120deg, #fffffff5, #fffdf6b8); border-color: #fffdf8; box-shadow: inset 0 1px 0 #fff, 0 3px 5px #4b382706, 0 17px 35px -12px #4b38272b; backdrop-filter: blur(8px); }
+.visual-lab .vl-b .vl-step { border-radius: 18px; padding: 21px; background: #fff; border-color: #fff; box-shadow: 0 17px 35px -12px #14283c2b; backdrop-filter: blur(8px); }
 .visual-lab .vl-b .vl-step:nth-of-type(3), .visual-lab .vl-b .vl-step:nth-of-type(5) { margin-left: 22px; margin-right: -22px; }
-.visual-lab .vl-b .vl-step-icon { background: linear-gradient(135deg, #fffdf9, #f3e5d2); color: #a76e32; border-color: #deceb747; border-radius: 14px; box-shadow: inset 0 1px 0 #fff, 0 3px 6px #77614b0a; }
+.visual-lab .vl-b .vl-step-icon { background: #fff; color: #fb8c00; border-color: #fb8c0047; border-radius: 14px; box-shadow: 0 3px 6px #14283c0a; }
 .visual-lab .vl-b .vl-pathway { background: #b2936442; left: 46px; }
 .visual-lab .vl-b .vl-pathway > span { display: none; }
 .visual-lab .vl-b .vl-button { border-radius: 30px; min-height: 52px; padding-inline: 25px; }
-.visual-lab .vl-b .vl-primary { background: linear-gradient(120deg, #f8b365, #f29a43); border-color: #d68a3b66; box-shadow: inset 0 1px 0 #ffffff85, 0 8px 20px #ac732724; }
+.visual-lab .vl-b .vl-primary { background: #fb8c00; border-color: #fb8c0066; box-shadow: 0 8px 20px #fb8c0024; }
 .visual-lab .vl-b .vl-primary::after { content: ""; position: absolute; inset: -60% -30%; background: linear-gradient(110deg, transparent 40%, #ffffff60 50%, transparent 60%); transform: translateX(-100%); transition: transform .7s; pointer-events: none; }
-.visual-lab .vl-b .vl-secondary { border-color: #bca98960; background: #fffdf787; }
+.visual-lab .vl-b .vl-secondary { border-color: #fb8c0060; background: #fff; }
 
 /* C: a dark architectural field, sweeping copper streams and floating modules. */
 .visual-lab .vl-c { --vl-ink: #f6f1e7; --vl-muted: #afbdc6; background: #102434; border-block: 1px solid #203747; }

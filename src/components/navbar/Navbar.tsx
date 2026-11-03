@@ -79,7 +79,7 @@ export function Navbar() {
 
             {/* Desktop switcher */}
             <div className={cn(
-              "hidden lg:flex items-center gap-1 rounded-full border border-[#F6C98B] px-2 py-1 transition-colors duration-200 motion-reduce:transition-none",
+              "hidden lg:flex items-center gap-1 rounded-full border border-brand-600 px-2 py-1 transition-colors duration-200 motion-reduce:transition-none",
               "bg-white",
             )}>
               {navLinks.map((link) => {
