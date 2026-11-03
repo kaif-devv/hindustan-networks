@@ -29,12 +29,12 @@
 .concept-home .vl-delivery-label { margin-bottom: 12px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #965a2e; }
 .concept-home .vl-delivery-steps { position: relative; display: flex; flex-direction: column; gap: 2px; }
 .concept-home .vl-delivery-steps::before { content: ""; position: absolute; top: 38px; bottom: 38px; left: 33px; width: 2px; border-radius: 2px; background: linear-gradient(#e8a154, #ed8c3e 50%, #e8a154); }
-.concept-home .vl-step { position: relative; display: flex; align-items: center; gap: 14px; min-height: 82px; padding: 12px 8px; border-radius: 14px; transition: background .2s, box-shadow .2s; }
+.concept-home .vl-step { position: relative; display: flex; align-items: center; gap: 14px; min-height: 82px; padding: 12px 8px; border-radius: 14px; background: #fff; box-shadow: 0 3px 8px #14283c08, 0 12px 28px #14283c0d; transition: background .2s, box-shadow .2s; }
 .concept-home .vl-step-icon { flex-shrink: 0; width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #e9a65b5c; border-radius: 14px; background: linear-gradient(145deg, #28465a, #1d3547); color: #ffbd79; box-shadow: inset 0 1px 0 #ffffff1c, 0 2px 7px #152d3e12; }
 .concept-home .vl-step-copy { min-width: 0; flex: 1; }
 .concept-home .vl-step-copy h2 { font-size: 17px; font-weight: 650; line-height: 1.2; margin: 0 0 5px; color: var(--vl-ink); letter-spacing: -.025em; }
 .concept-home .vl-step-copy p { margin: 0; color: #78858c; font-size: 13px; line-height: 1.45; }
-.concept-home .vl-a { background: #faf6ea; border-block: 1px solid #c9bda342; }
+.concept-home .vl-a { background: #fff; border-block: 1px solid #c9bda342; }
 .concept-home .vl-a .vl-background { opacity: .27; }
 .concept-home .vl-topology { width: 100%; height: 100%; }
 .concept-home .vl-network-line { stroke: #778881; stroke-width: 1; fill: none; opacity: .32; }
@@ -44,12 +44,12 @@
 .concept-home .vl-a .vl-delivery { padding: 18px 0; }
 .concept-home .vl-a .vl-badge { font-family: ui-monospace, monospace; letter-spacing: .07em; }
 .concept-home .vl-a .vl-primary { border-radius: 5px; background: #ed932f; }
-.concept-home .vl-a .vl-secondary { border-radius: 5px; background: #faf6ea; }
+.concept-home .vl-a .vl-secondary { border-radius: 5px; background: #fff; }
 
 @keyframes vl-node-pulse { 0%, 100% { transform: scale(.8); opacity: .15; } 40% { transform: scale(1.4); opacity: .5; } }
 
 @media (hover: hover) and (pointer: fine) {
-  .concept-home .vl-step:hover { background: linear-gradient(100deg, #fff4e7, #fffefa 75%); box-shadow: inset 3px 0 #eb8d35, 0 5px 14px #263b4c0b; }
+  .concept-home .vl-step:hover { background: #fff; box-shadow: inset 3px 0 #eb8d35, 0 5px 14px #263b4c0b; }
   .concept-home .vl-hero:hover .vl-pointer-light { opacity: 1; }
   .concept-home .vl-button:hover { transform: translateY(-2px); }
   .concept-home .vl-button:hover svg { transform: translateX(3px); }

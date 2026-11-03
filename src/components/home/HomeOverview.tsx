@@ -59,7 +59,7 @@ export function HomeOverview() {
               </div>
             ))}
           </div>
-          <div className="mt-12 rounded-xl border border-card bg-white/70 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center gap-6">
+          <div className="mt-12 rounded-xl border border-card bg-white p-6 shadow-[0_3px_8px_rgba(20,40,60,0.03),0_12px_28px_rgba(20,40,60,0.07)] sm:p-8 flex flex-col lg:flex-row lg:items-center gap-6">
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-heading mb-2">A solution for your site</h3>
               <p className="text-sm text-body leading-relaxed">Offices, education, healthcare, hospitality, retail, industrial facilities, residential communities, public institutions, warehouses and data centers.</p>

@@ -17,8 +17,8 @@
   padding: 32px 24px 22px;
   border: 1px solid #14283c1c;
   border-radius: 12px;
-  background: #fffefa;
-  box-shadow: inset 0 1px 0 #ffffffcc, 0 2px 5px #14283c04, 0 8px 24px #14283c09;
+  background: #fff;
+  box-shadow: 0 3px 8px #14283c08, 0 12px 28px #14283c12;
   text-align: center;
   transition: border-color .24s, box-shadow .24s;
 }
@@ -39,7 +39,7 @@
 .sectors-card-accent > span { position: absolute; inset: 0; background: linear-gradient(90deg, transparent, #e9a94a 45%, #fff3da 55%, transparent); transform: translateX(-110%); }
 .sectors-card-node { position: absolute; top: 24px; right: 24px; width: 5px; height: 5px; border-radius: 50%; background: #a4aaa0; box-shadow: 0 0 0 4px #9ba8a40d; transition: background-color .24s, box-shadow .24s; }
 .sectors-icon-shift { display: inline-flex; margin: 4px 0 20px; transition: transform .24s; }
-.sectors-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; color: #354f60; background: #fff0d9; border: 1px solid #c1946026; box-shadow: inset 0 1px 0 #fffaf2, 0 2px 6px #263b4c05; transition: color .24s, border-color .24s; }
+.sectors-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; color: #354f60; background: #fff; border: 1px solid #c1946026; box-shadow: 0 2px 6px #263b4c0a; transition: color .24s, border-color .24s; }
 .sectors-card-title { max-width: 100%; margin-bottom: 12px; line-height: 1.4; }
 .sectors-card-description { max-width: 310px; margin-bottom: 20px; }
 .sectors-card-trace { margin-top: auto; color: #b38c59; opacity: .45; transition: opacity .24s; flex-shrink: 0; }

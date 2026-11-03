@@ -80,7 +80,7 @@ export function Navbar() {
             {/* Desktop switcher */}
             <div className={cn(
               "hidden lg:flex items-center gap-1 rounded-full border border-[#F6C98B] px-2 py-1 transition-colors duration-200 motion-reduce:transition-none",
-              scrolled ? "bg-white" : "bg-[#FFF4E8]",
+              "bg-white",
             )}>
               {navLinks.map((link) => {
                 const isActive =
